@@ -1,0 +1,209 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxgk1aprukydu"]
+
+[ext_resource type="Texture2D" uid="uid://b23r3rajytmq6" path="res://sprites/Untitled_Artwork-2.png" id="1_1mij3"]
+[ext_resource type="Script" path="res://scenes/map_test.gd" id="1_5xivo"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6hmn5"]
+texture = ExtResource("1_1mij3")
+texture_region_size = Vector2i(256, 256)
+4:0/0 = 0
+4:0/0/terrain_set = 0
+4:0/0/terrains_peering_bit/left_side = 0
+4:0/0/terrains_peering_bit/top_side = 0
+5:0/0 = 0
+5:0/0/terrain_set = 0
+5:0/0/terrains_peering_bit/top_side = 0
+6:0/0 = 0
+6:0/0/terrain_set = 0
+6:0/0/terrains_peering_bit/right_side = 0
+6:0/0/terrains_peering_bit/top_side = 0
+1:1/0 = 0
+1:1/0/terrain_set = 0
+1:1/0/terrain = 0
+1:1/0/terrains_peering_bit/bottom_side = 0
+4:1/0 = 0
+4:1/0/terrain_set = 0
+4:1/0/terrains_peering_bit/left_side = 0
+5:1/0 = 0
+5:1/0/terrain_set = 0
+6:1/0 = 0
+6:1/0/terrain_set = 0
+6:1/0/terrains_peering_bit/right_side = 0
+0:2/0 = 0
+0:2/0/terrain_set = 0
+0:2/0/terrain = 0
+0:2/0/terrains_peering_bit/right_side = 0
+1:2/0 = 0
+1:2/0/terrain_set = 0
+1:2/0/terrain = 0
+1:2/0/terrains_peering_bit/right_side = 0
+1:2/0/terrains_peering_bit/bottom_side = 0
+1:2/0/terrains_peering_bit/left_side = 0
+1:2/0/terrains_peering_bit/top_side = 0
+2:2/0 = 0
+2:2/0/terrain_set = 0
+2:2/0/terrain = 0
+2:2/0/terrains_peering_bit/left_side = 0
+4:2/0 = 0
+4:2/0/terrain_set = 0
+4:2/0/terrains_peering_bit/bottom_side = 0
+4:2/0/terrains_peering_bit/left_side = 0
+5:2/0 = 0
+5:2/0/terrain_set = 0
+5:2/0/terrains_peering_bit/bottom_side = 0
+6:2/0 = 0
+6:2/0/terrain_set = 0
+6:2/0/terrains_peering_bit/right_side = 0
+6:2/0/terrains_peering_bit/bottom_side = 0
+1:3/0 = 0
+1:3/0/terrain_set = 0
+1:3/0/terrain = 0
+1:3/0/terrains_peering_bit/top_side = 0
+4:3/0 = 0
+4:3/0/terrain_set = 0
+4:3/0/terrain = 0
+4:3/0/terrains_peering_bit/right_side = 0
+4:3/0/terrains_peering_bit/bottom_side = 0
+5:3/0 = 0
+5:3/0/terrain_set = 0
+5:3/0/terrain = 0
+5:3/0/terrains_peering_bit/right_side = 0
+5:3/0/terrains_peering_bit/bottom_side = 0
+5:3/0/terrains_peering_bit/left_side = 0
+6:3/0 = 0
+6:3/0/terrain_set = 0
+6:3/0/terrain = 0
+6:3/0/terrains_peering_bit/bottom_side = 0
+6:3/0/terrains_peering_bit/left_side = 0
+1:4/0 = 0
+1:4/0/terrain_set = 0
+1:4/0/terrain = 0
+1:4/0/terrains_peering_bit/bottom_side = 0
+4:4/0 = 0
+4:4/0/terrain_set = 0
+4:4/0/terrain = 0
+4:4/0/terrains_peering_bit/right_side = 0
+4:4/0/terrains_peering_bit/bottom_side = 0
+4:4/0/terrains_peering_bit/top_side = 0
+5:4/0 = 0
+5:4/0/terrain_set = 0
+5:4/0/terrain = 0
+5:4/0/terrains_peering_bit/right_side = 0
+5:4/0/terrains_peering_bit/bottom_side = 0
+5:4/0/terrains_peering_bit/left_side = 0
+5:4/0/terrains_peering_bit/top_side = 0
+6:4/0 = 0
+6:4/0/terrain_set = 0
+6:4/0/terrain = 0
+6:4/0/terrains_peering_bit/bottom_side = 0
+6:4/0/terrains_peering_bit/left_side = 0
+6:4/0/terrains_peering_bit/top_side = 0
+1:5/0 = 0
+1:5/0/terrain_set = 0
+1:5/0/terrain = 0
+1:5/0/terrains_peering_bit/bottom_side = 0
+1:5/0/terrains_peering_bit/top_side = 0
+4:5/0 = 0
+4:5/0/terrain_set = 0
+4:5/0/terrain = 0
+4:5/0/terrains_peering_bit/right_side = 0
+4:5/0/terrains_peering_bit/top_side = 0
+5:5/0 = 0
+5:5/0/terrain_set = 0
+5:5/0/terrain = 0
+5:5/0/terrains_peering_bit/right_side = 0
+5:5/0/terrains_peering_bit/left_side = 0
+5:5/0/terrains_peering_bit/top_side = 0
+6:5/0 = 0
+6:5/0/terrain_set = 0
+6:5/0/terrain = 0
+6:5/0/terrains_peering_bit/left_side = 0
+6:5/0/terrains_peering_bit/top_side = 0
+1:6/0 = 0
+1:6/0/terrain_set = 0
+1:6/0/terrain = 0
+1:6/0/terrains_peering_bit/top_side = 0
+2:6/0 = 0
+2:6/0/terrain_set = 0
+2:6/0/terrain = 0
+2:6/0/terrains_peering_bit/right_side = 0
+3:6/0 = 0
+3:6/0/terrain_set = 0
+3:6/0/terrain = 0
+3:6/0/terrains_peering_bit/right_side = 0
+3:6/0/terrains_peering_bit/left_side = 0
+4:6/0 = 0
+4:6/0/terrain_set = 0
+4:6/0/terrain = 0
+4:6/0/terrains_peering_bit/left_side = 0
+5:6/0 = 0
+6:6/0 = 0
+6:6/0/terrain_set = 0
+6:6/0/terrain = 0
+
+[sub_resource type="TileSet" id="TileSet_kmwno"]
+tile_size = Vector2i(256, 256)
+terrain_set_0/mode = 2
+terrain_set_0/terrain_0/name = "Terrain 0"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+sources/2 = SubResource("TileSetAtlasSource_6hmn5")
+
+[node name="map_test" type="Node2D"]
+script = ExtResource("1_5xivo")
+
+[node name="map" type="Node2D" parent="."]
+position = Vector2(111, 90)
+scale = Vector2(0.1, 0.1)
+
+[node name="Polygon2D" type="Polygon2D" parent="map"]
+polygon = PackedVector2Array(-667, -608, 4619, -608, 4502, 5330, -709, 5340)
+
+[node name="TileMap" type="TileMap" parent="map"]
+tile_set = SubResource("TileSet_kmwno")
+format = 2
+layer_0/tile_data = PackedInt32Array(14, 393218, 3, 13, 196610, 6, 12, 327682, 3, 11, 196610, 6, 10, 196610, 6, 9, 196610, 6, 8, 327682, 3, 7, 196610, 6, 6, 196610, 6, 5, 196610, 6, 4, 327682, 3, 3, 196610, 6, 2, 327682, 3, 1, 196610, 6, 0, 262146, 3, 458766, 65538, 6, 393230, 65538, 5, 327694, 65538, 5, 262158, 65538, 5, 196622, 65538, 5, 131086, 65538, 5, 65550, 65538, 5, 196612, 2, 2, 196613, 196610, 6, 196614, 327682, 5, 196615, 196610, 6, 196616, 327682, 3, 196617, 196610, 6, 196618, 327682, 5, 196619, 196610, 6, 196620, 262146, 6, 196608, 262146, 5, 131072, 65538, 5, 65536, 65538, 5, 196609, 196610, 6, 196610, 262146, 6, 65538, 65538, 6, 65540, 65538, 6, 131078, 65538, 1, 65544, 65538, 3, 131082, 65538, 4, 65548, 65538, 6, 524296, 65538, 3, 458760, 65538, 5, 393224, 65538, 5, 327688, 65538, 5, 262152, 65538, 5, 524298, 262146, 5, 458762, 65538, 5, 393226, 65538, 5, 327690, 65538, 4, 524300, 393218, 5, 524299, 196610, 6, 327692, 65538, 1, 393228, 65538, 5, 458764, 65538, 5, 393222, 393218, 5, 327686, 393218, 3, 393221, 262146, 5, 327685, 262146, 3, 327682, 393218, 3, 327681, 327682, 3, 327680, 262146, 3, 458754, 393218, 5, 393218, 393218, 4, 458752, 262146, 5, 458753, 327682, 5, 393216, 262146, 4, 393217, 327682, 4, -2, 65538, 5, 65534, 65538, 5, 131070, 65538, 5, 196606, 65538, 5, 262142, 65538, 5, 327678, 65538, 5, 393214, 65538, 5, 458750, 65538, 5, -131057, 196610, 6, -131058, 196610, 6, -131059, 196610, 6, -131060, 196610, 6, -131061, 196610, 6, -131062, 196610, 6, -131063, 196610, 6, -131064, 196610, 6, -131065, 196610, 6, -131066, 196610, 6, -131067, 196610, 6, -131068, 196610, 6, -131069, 196610, 6, -131070, 196610, 6, -131071, 196610, 6, -131072, 196610, 6, -65537, 196610, 6, -65538, 262146, 3, 655376, 393218, 4, 589840, 65538, 5, 524304, 65538, 5, 458768, 65538, 5, 393232, 65538, 5, 327696, 65538, 5, 262160, 65538, 5, 196624, 65538, 5, 131088, 65538, 5, 65552, 65538, 5, 16, 65538, 5, -65520, 65538, 5, -131056, 393218, 3, 720894, 262146, 4, 720895, 196610, 6, 655360, 131074, 2, 655362, 262146, 5, 655363, 196610, 6, 655364, 196610, 6, 655365, 327682, 5, 655366, 196610, 6, 655367, 196610, 6, 655368, 196610, 6, 655369, 262146, 6, 655371, 2, 2, 655372, 196610, 6, 655373, 196610, 6, 655374, 327682, 5, 655375, 196610, 6, 589838, 65538, 1, 589829, 65538, 5, 524293, 262146, 3, 524294, 262146, 6, 524286, 65538, 5, 589822, 65538, 5, 655358, 65538, 5, 589826, 65538, 1, 1310718, 262146, 5, 1245182, 65538, 5, 1179646, 65538, 5, 1114110, 65538, 5, 1048574, 65538, 4, 917502, 65538, 3, 851966, 65538, 5, 786430, 65538, 5, 1245200, 393218, 5, 1245199, 196610, 6, 1245198, 196610, 6, 1245197, 196610, 6, 1245196, 327682, 5, 1245195, 2, 2, 1245193, 131074, 2, 1245192, 327682, 5, 1245191, 196610, 6, 1245190, 196610, 6, 1245189, 196610, 6, 1245188, 196610, 6, 1245187, 196610, 6, 1245186, 196610, 6, 1245185, 196610, 6, 1245184, 196610, 6, 1310719, 196610, 6, 720912, 65538, 5, 786448, 65538, 5, 851984, 65538, 5, 917520, 65538, 5, 983056, 65538, 5, 1048592, 65538, 5, 1114128, 65538, 5, 1179664, 65538, 5, 1114112, 65538, 3, 1048576, 65538, 5, 983040, 65538, 5, 917504, 65538, 5, 851968, 65538, 5, 786432, 65538, 1, 1114114, 65538, 3, 1048578, 65538, 5, 983042, 65538, 5, 917506, 65538, 5, 851970, 65538, 5, 786434, 65538, 4, 1114116, 65538, 3, 1048580, 65538, 5, 983044, 65538, 5, 917508, 65538, 5, 851972, 65538, 5, 786436, 65538, 4, 786446, 262146, 6, 786445, 196610, 6, 786444, 196610, 6, 786443, 196610, 6, 786442, 196610, 6, 786441, 196610, 6, 786440, 196610, 6, 786439, 196610, 6, 786438, 2, 2, 917510, 393218, 6, 917512, 393218, 6, 917514, 393218, 6, 917516, 393218, 6, 917518, 393218, 6, 1048590, 393218, 3, 1048589, 196610, 6, 1048588, 196610, 6, 1048587, 196610, 6, 1048586, 327682, 3, 1048585, 196610, 6, 1048584, 196610, 6, 1048583, 196610, 6, 1048582, 262146, 3, 1114118, 65538, 3, 1179656, 65538, 1, 1114122, 65538, 3, 1179660, 65538, 1, 1114126, 65538, 6)
+
+[node name="antagonist" type="Node2D" parent="."]
+position = Vector2(379, 563)
+
+[node name="antagonist" type="Polygon2D" parent="antagonist"]
+position = Vector2(295, 200)
+scale = Vector2(0.1, 0.1)
+color = Color(0.905882, 0, 0, 1)
+polygon = PackedVector2Array(-3010, -1900, -3020, -2110, -2980, -2000, -2920, -2000, -2890, -2110, -2870, -1900)
+
+[node name="exit" type="Node2D" parent="."]
+position = Vector2(382, 602)
+scale = Vector2(1, 1)
+
+[node name="Polygon2D" type="Polygon2D" parent="exit"]
+color = Color(0, 0, 0.807843, 1)
+polygon = PackedVector2Array(-8.99997, 8, -9.99997, -5, -18, -7, -4.99997, -27, 15, -5, 4.00003, -4, 5.00003, 13)
+
+[node name="exit2" type="Node2D" parent="."]
+position = Vector2(72, 468)
+scale = Vector2(1, 1)
+
+[node name="Polygon2D" type="Polygon2D" parent="exit2"]
+color = Color(0, 0, 0.807843, 1)
+polygon = PackedVector2Array(-8.99997, 8, -9.99997, -5, -18, -7, -4.99997, -27, 15, -5, 4.00003, -4, 5.00003, 13)
+
+[node name="protagonist" type="Node2D" parent="."]
+position = Vector2(148, 354)
+scale = Vector2(1, 1)
+
+[node name="protagonist" type="Polygon2D" parent="protagonist"]
+position = Vector2(309, -49)
+scale = Vector2(0.1, 0.1)
+color = Color(0, 0.819608, 0, 1)
+polygon = PackedVector2Array(-3170, 470, -3140, 540, -3070, 580, -2990, 560, -2920, 460, -3020, 490, -3080, 500)
+
+[node name="treasure" type="Node2D" parent="."]
+position = Vector2(404, 277)
+scale = Vector2(1, 1)
+
+[node name="treasure" type="Polygon2D" parent="treasure"]
+position = Vector2(-1.00001, 6)
+scale = Vector2(0.1, 0.1)
+color = Color(1, 0.886275, 0, 1)
+polygon = PackedVector2Array(-110, -69.9999, 50, -160, 120, -29.9999, 50, 100, -70, 40.0001)

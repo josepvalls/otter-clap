@@ -1,0 +1,239 @@
+[gd_scene load_steps=11 format=3 uid="uid://dg6j4ggkx2e4b"]
+
+[ext_resource type="Texture2D" uid="uid://u4cfa1q58siu" path="res://sprites/tree.png" id="1_3jair"]
+[ext_resource type="Texture2D" uid="uid://dlkm33fpw0eeo" path="res://sprites/paper.png" id="1_150oa"]
+[ext_resource type="Texture2D" uid="uid://fwymsh1mshj4" path="res://sprites/path_curve.png" id="2_f6y0t"]
+[ext_resource type="Texture2D" uid="uid://cfl4kiuqk0uid" path="res://sprites/path_straight.png" id="3_3qn41"]
+[ext_resource type="Shader" path="res://scenes/noise_shadows.gdshader" id="4_jj1og"]
+[ext_resource type="Texture2D" uid="uid://ddjfxlb224vet" path="res://sprites/shadow.png" id="5_0wlyg"]
+[ext_resource type="Texture2D" uid="uid://bpwmsfj5u1q71" path="res://sprites/blob.png" id="5_xps68"]
+[ext_resource type="Script" path="res://scenes/blue-move.gd" id="6_6s7pv"]
+[ext_resource type="Script" path="res://scenes/Shadow_moving.gd" id="6_bjdwg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_twth0"]
+shader = ExtResource("4_jj1og")
+shader_parameter/tr = Vector2(0, 0)
+
+[node name="isometric_test" type="Node2D"]
+
+[node name="Paper" type="Sprite2D" parent="."]
+position = Vector2(744, 440)
+texture = ExtResource("1_150oa")
+
+[node name="Node2D" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Tree1" type="Sprite2D" parent="Node2D"]
+position = Vector2(440, 160)
+texture = ExtResource("1_3jair")
+
+[node name="Tree2" type="Sprite2D" parent="Node2D"]
+position = Vector2(320, 232)
+texture = ExtResource("1_3jair")
+
+[node name="Tree3" type="Sprite2D" parent="Node2D"]
+position = Vector2(192, 304)
+texture = ExtResource("1_3jair")
+
+[node name="Tree4" type="Sprite2D" parent="Node2D"]
+position = Vector2(808, -54.5)
+texture = ExtResource("1_3jair")
+
+[node name="Tree5" type="Sprite2D" parent="Node2D"]
+position = Vector2(688, 17.5)
+texture = ExtResource("1_3jair")
+
+[node name="Tree10" type="Sprite2D" parent="Node2D"]
+position = Vector2(688, 304)
+texture = ExtResource("1_3jair")
+
+[node name="Tree11" type="Sprite2D" parent="Node2D"]
+position = Vector2(568, 376)
+texture = ExtResource("1_3jair")
+
+[node name="Tree12" type="Sprite2D" parent="Node2D"]
+position = Vector2(440, 448)
+texture = ExtResource("1_3jair")
+
+[node name="Tree13" type="Sprite2D" parent="Node2D"]
+position = Vector2(1056, 89.5)
+texture = ExtResource("1_3jair")
+
+[node name="Tree14" type="Sprite2D" parent="Node2D"]
+position = Vector2(936, 161.5)
+texture = ExtResource("1_3jair")
+
+[node name="Tree7" type="Sprite2D" parent="Node2D"]
+position = Vector2(936, -128)
+texture = ExtResource("1_3jair")
+
+[node name="Tree6" type="Sprite2D" parent="Node2D"]
+position = Vector2(680, -125)
+texture = ExtResource("1_3jair")
+
+[node name="Tree15" type="Sprite2D" parent="Node2D"]
+position = Vector2(560, -53)
+texture = ExtResource("1_3jair")
+
+[node name="Tree16" type="Sprite2D" parent="Node2D"]
+position = Vector2(808, -198.5)
+texture = ExtResource("1_3jair")
+
+[node name="Tree17" type="Sprite2D" parent="Node2D"]
+position = Vector2(560, -197)
+texture = ExtResource("1_3jair")
+
+[node name="Tree18" type="Sprite2D" parent="Node2D"]
+position = Vector2(440, -125)
+texture = ExtResource("1_3jair")
+
+[node name="Tree19" type="Sprite2D" parent="Node2D"]
+position = Vector2(688, -270.5)
+texture = ExtResource("1_3jair")
+
+[node name="Tree8" type="Sprite2D" parent="Node2D"]
+position = Vector2(1056, -56)
+texture = ExtResource("1_3jair")
+
+[node name="Tree9" type="Sprite2D" parent="Node2D"]
+position = Vector2(1176, 16)
+texture = ExtResource("1_3jair")
+
+[node name="PathStraight4" type="Sprite2D" parent="Node2D"]
+position = Vector2(688, 160)
+texture = ExtResource("2_f6y0t")
+flip_h = true
+
+[node name="PathStraight7" type="Sprite2D" parent="Node2D"]
+position = Vector2(816, 232)
+texture = ExtResource("3_3qn41")
+flip_h = true
+
+[node name="PathStraight8" type="Sprite2D" parent="Node2D"]
+position = Vector2(560, 88)
+texture = ExtResource("3_3qn41")
+flip_h = true
+
+[node name="PathStraight9" type="Sprite2D" parent="Node2D"]
+position = Vector2(440, 16)
+texture = ExtResource("3_3qn41")
+flip_h = true
+
+[node name="PathStraight5" type="Sprite2D" parent="Node2D"]
+position = Vector2(808, 91)
+texture = ExtResource("3_3qn41")
+
+[node name="PathStraight6" type="Sprite2D" parent="Node2D"]
+position = Vector2(928, 19)
+texture = ExtResource("3_3qn41")
+
+[node name="PathStraight" type="Sprite2D" parent="Node2D"]
+position = Vector2(320, 376)
+texture = ExtResource("3_3qn41")
+
+[node name="PathStraight2" type="Sprite2D" parent="Node2D"]
+position = Vector2(440, 307)
+texture = ExtResource("3_3qn41")
+
+[node name="PathStraight3" type="Sprite2D" parent="Node2D"]
+position = Vector2(560, 235)
+texture = ExtResource("3_3qn41")
+
+[node name="Tree20" type="Sprite2D" parent="Node2D"]
+position = Vector2(928, 449.5)
+texture = ExtResource("3_3qn41")
+
+[node name="Tree21" type="Sprite2D" parent="Node2D"]
+position = Vector2(808, 521.5)
+texture = ExtResource("3_3qn41")
+
+[node name="Tree22" type="Sprite2D" parent="Node2D"]
+position = Vector2(680, 593.5)
+texture = ExtResource("3_3qn41")
+
+[node name="Tree23" type="Sprite2D" parent="Node2D"]
+position = Vector2(1296, 235)
+texture = ExtResource("1_3jair")
+
+[node name="Tree24" type="Sprite2D" parent="Node2D"]
+position = Vector2(1176, 307)
+texture = ExtResource("1_3jair")
+
+[node name="Tree25" type="Sprite2D" parent="Node2D"]
+position = Vector2(1296, 89.5)
+texture = ExtResource("1_3jair")
+
+[node name="Tree26" type="Sprite2D" parent="Node2D"]
+position = Vector2(1416, 161.5)
+texture = ExtResource("1_3jair")
+
+[node name="PathStraight17" type="Sprite2D" parent="Node2D"]
+position = Vector2(928, 305.5)
+texture = ExtResource("2_f6y0t")
+flip_h = true
+
+[node name="PathStraight18" type="Sprite2D" parent="Node2D"]
+position = Vector2(1056, 377.5)
+texture = ExtResource("3_3qn41")
+flip_h = true
+
+[node name="PathStraight19" type="Sprite2D" parent="Node2D"]
+position = Vector2(1048, 236.5)
+texture = ExtResource("3_3qn41")
+
+[node name="PathStraight20" type="Sprite2D" parent="Node2D"]
+position = Vector2(1168, 164.5)
+texture = ExtResource("3_3qn41")
+
+[node name="PathStraight21" type="Sprite2D" parent="Node2D"]
+position = Vector2(560, 521.5)
+texture = ExtResource("3_3qn41")
+
+[node name="PathStraight22" type="Sprite2D" parent="Node2D"]
+position = Vector2(680, 452.5)
+texture = ExtResource("3_3qn41")
+
+[node name="PathStraight23" type="Sprite2D" parent="Node2D"]
+position = Vector2(800, 380.5)
+texture = ExtResource("3_3qn41")
+
+[node name="PathStraight10" type="Sprite2D" parent="Node2D"]
+position = Vector2(72, 229)
+texture = ExtResource("3_3qn41")
+
+[node name="PathStraight11" type="Sprite2D" parent="Node2D"]
+position = Vector2(192, 160)
+texture = ExtResource("3_3qn41")
+
+[node name="PathStraight12" type="Sprite2D" parent="Node2D"]
+position = Vector2(312, 88)
+texture = ExtResource("3_3qn41")
+
+[node name="PathStraight13" type="Sprite2D" parent="Node2D"]
+position = Vector2(312, -54)
+texture = ExtResource("3_3qn41")
+flip_h = true
+
+[node name="PathStraight14" type="Sprite2D" parent="Node2D"]
+position = Vector2(-56, 159)
+texture = ExtResource("3_3qn41")
+
+[node name="PathStraight15" type="Sprite2D" parent="Node2D"]
+position = Vector2(64, 90)
+texture = ExtResource("3_3qn41")
+
+[node name="PathStraight16" type="Sprite2D" parent="Node2D"]
+position = Vector2(184, 18)
+texture = ExtResource("3_3qn41")
+
+[node name="blue" type="Sprite2D" parent="Node2D"]
+position = Vector2(320, 440)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("5_xps68")
+script = ExtResource("6_6s7pv")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_twth0")
+position = Vector2(696, 224)
+texture = ExtResource("5_0wlyg")
+script = ExtResource("6_bjdwg")

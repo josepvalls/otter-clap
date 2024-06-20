@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://fukvyy4fhb13"]
+
+[ext_resource type="Texture2D" uid="uid://cfl4kiuqk0uid" path="res://sprites/path_straight.png" id="1_3km5d"]
+[ext_resource type="Texture2D" uid="uid://u4cfa1q58siu" path="res://sprites/tree.png" id="1_w0yev"]
+
+[node name="tiles" type="Node2D"]
+
+[node name="Tree" type="Sprite2D" parent="."]
+position = Vector2(0, -128)
+texture = ExtResource("1_w0yev")
+
+[node name="PathStraight" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -128)
+texture = ExtResource("1_3km5d")

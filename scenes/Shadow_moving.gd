@@ -9,5 +9,5 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	shadow_position.y += delta * 0.5
+	shadow_position.y += delta * 0.1
 	material.set_shader_parameter("tr", shadow_position)

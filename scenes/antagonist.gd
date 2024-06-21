@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var target: Node2D
-var speed = 300
+var speed = 100
 var acceleration = 300
 
 @onready var navigation_agent: NavigationAgent2D

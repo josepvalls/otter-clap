@@ -1,5 +1,6 @@
 extends Node2D
 
+var map_reference = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,11 +20,19 @@ func to_local_(v: Vector2):
 func create_map(data):
 	var reference = $ysorter/tiles0
 	for datum in data:
-		if datum == Vector2i.ZERO:
+		var coords = datum[0]
+		var kind = datum[1]
+		if coords == Vector2i.ZERO:
 			continue
 		var tile = reference.duplicate()
-		tile.position = to_local_(datum)
+		tile.position = to_local_(coords)
+		tile.set_kind(kind)
 		$ysorter.add_child(tile)
+		map_reference[coords] = tile
 		
-func move_to_(p):
-	$ysorter/blue.position = to_local_(p)
+func move_to_(p, who):
+	$ysorter.get_node(who).position = to_local_(p)
+
+func update_tile(p, k):
+	if p in map_reference:
+		map_reference[p].set_kind(k)

@@ -15,11 +15,11 @@ texture = SubResource("ViewportTexture_wcwbd")
 centered = false
 
 [node name="SubViewport" type="SubViewport" parent="view"]
-size = Vector2i(1152, 648)
+size = Vector2i(1920, 1080)
 
 [node name="isometric_test2" parent="view/SubViewport" instance=ExtResource("8_l0tqj")]
-position = Vector2(576, 0)
-scale = Vector2(0.282, 0.282)
+position = Vector2(960, 0)
+scale = Vector2(0.45, 0.45)
 
 [node name="map_test" parent="." instance=ExtResource("3_bcywv")]
-position = Vector2(776, -656)
+position = Vector2(-32, -632)

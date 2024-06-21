@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://bi2s8xpyec0ds"]
+
+[ext_resource type="Script" path="res://intro.gd" id="1_yox5o"]
+[ext_resource type="Texture2D" uid="uid://b88oarnemk0fe" path="res://sprites/intro/Wildling-Wallpaper 1080.png" id="2_jyfay"]
+[ext_resource type="Texture2D" uid="uid://swk67n8x6nwy" path="res://sprites/intro/70-Folklore.png" id="3_vditw"]
+[ext_resource type="Texture2D" uid="uid://dte3xv2yjj8qf" path="res://sprites/intro/consequences.png" id="4_msw6t"]
+[ext_resource type="Texture2D" uid="uid://cl3x0mbw30g4y" path="res://sprites/intro/takeover.png" id="5_2tfp0"]
+[ext_resource type="Texture2D" uid="uid://paooyl7brd5h" path="res://sprites/intro/intro.png" id="6_ljuv8"]
+
+[node name="intro" type="Node2D"]
+script = ExtResource("1_yox5o")
+
+[node name="bg" type="ColorRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.0705882, 0.133333, 0.247059, 1)
+
+[node name="i1" type="Node2D" parent="."]
+
+[node name="Wildling-wallpaper1080" type="Sprite2D" parent="i1"]
+texture = ExtResource("2_jyfay")
+centered = false
+
+[node name="i2" type="Node2D" parent="."]
+
+[node name="bg" type="ColorRect" parent="i2"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.0705882, 0.133333, 0.247059, 1)
+
+[node name="70-folklore" type="Sprite2D" parent="i2"]
+position = Vector2(960, 296)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_vditw")
+
+[node name="Consequences" type="Sprite2D" parent="i2"]
+position = Vector2(1200, 784)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_msw6t")
+
+[node name="Takeover" type="Sprite2D" parent="i2"]
+position = Vector2(656, 784)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_2tfp0")
+
+[node name="i3" type="Node2D" parent="."]
+
+[node name="Intro" type="Sprite2D" parent="i3"]
+position = Vector2(960.368, 568)
+scale = Vector2(1.30672, 1.30672)
+texture = ExtResource("6_ljuv8")
+
+[node name="i4" type="Node2D" parent="."]
+
+[node name="Button" type="Button" parent="i4"]
+offset_left = 192.0
+offset_top = 128.0
+offset_right = 512.0
+offset_bottom = 320.0
+text = "Start game"
+
+[node name="i5" type="Node2D" parent="."]
+
+[node name="bg2" type="ColorRect" parent="i5"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.0705882, 0.133333, 0.247059, 1)

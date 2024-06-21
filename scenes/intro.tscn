@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bi2s8xpyec0ds"]
+[gd_scene load_steps=9 format=3 uid="uid://bi2s8xpyec0ds"]
 
 [ext_resource type="Script" path="res://intro.gd" id="1_yox5o"]
 [ext_resource type="Texture2D" uid="uid://b88oarnemk0fe" path="res://sprites/intro/Wildling-Wallpaper 1080.png" id="2_jyfay"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://dte3xv2yjj8qf" path="res://sprites/intro/consequences.png" id="4_msw6t"]
 [ext_resource type="Texture2D" uid="uid://cl3x0mbw30g4y" path="res://sprites/intro/takeover.png" id="5_2tfp0"]
 [ext_resource type="Texture2D" uid="uid://paooyl7brd5h" path="res://sprites/intro/intro.png" id="6_ljuv8"]
+[ext_resource type="Texture2D" uid="uid://dlkm33fpw0eeo" path="res://sprites/paper.png" id="7_0kavs"]
+[ext_resource type="FontFile" uid="uid://bgb1ygnv2vrjd" path="res://fonts/Rosharp.ttf" id="8_xevi8"]
 
 [node name="intro" type="Node2D"]
 script = ExtResource("1_yox5o")
@@ -45,23 +47,53 @@ texture = ExtResource("5_2tfp0")
 
 [node name="i3" type="Node2D" parent="."]
 
-[node name="Intro" type="Sprite2D" parent="i3"]
+[node name="Paper" type="Sprite2D" parent="i3"]
+position = Vector2(952, 744)
+texture = ExtResource("7_0kavs")
+
+[node name="Label" type="Label" parent="i3"]
+offset_right = 1920.0
+offset_bottom = 2589.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.67451, 0.207843, 0.113725, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("8_xevi8")
+theme_override_font_sizes/font_size = 120
+text = "Story goes here..."
+autowrap_mode = 2
+
+[node name="i4" type="Node2D" parent="."]
+
+[node name="Intro" type="Sprite2D" parent="i4"]
 position = Vector2(960.368, 568)
 scale = Vector2(1.30672, 1.30672)
 texture = ExtResource("6_ljuv8")
 
-[node name="i4" type="Node2D" parent="."]
+[node name="menu" type="Node2D" parent="."]
 
-[node name="Button" type="Button" parent="i4"]
+[node name="Button" type="Button" parent="menu"]
 offset_left = 192.0
 offset_top = 128.0
 offset_right = 512.0
 offset_bottom = 320.0
 text = "Start game"
 
-[node name="i5" type="Node2D" parent="."]
+[node name="fadeout" type="Node2D" parent="."]
 
-[node name="bg2" type="ColorRect" parent="i5"]
+[node name="bg2" type="ColorRect" parent="fadeout"]
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0.0705882, 0.133333, 0.247059, 1)
+
+[node name="continue" type="Label" parent="."]
+offset_top = 1040.0
+offset_right = 1920.0
+offset_bottom = 2589.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.67451, 0.207843, 0.113725, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("8_xevi8")
+theme_override_font_sizes/font_size = 60
+text = "Press \"space\" to continue..."
+horizontal_alignment = 1
+autowrap_mode = 2

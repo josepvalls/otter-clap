@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://fukvyy4fhb13"]
+[gd_scene load_steps=41 format=3 uid="uid://fukvyy4fhb13"]
 
 [ext_resource type="Texture2D" uid="uid://bd0xpljl2yw20" path="res://sprites/Base/Base-5.png" id="1_2m75g"]
 [ext_resource type="Script" path="res://scenes/tiles.gd" id="1_ijpbn"]
@@ -33,7 +33,7 @@
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_4rql4"]
+[sub_resource type="CurveTexture" id="CurveTexture_cvtuf"]
 curve = SubResource("Curve_jf2lf")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4h2kp"]
@@ -42,15 +42,15 @@ spread = 180.0
 initial_velocity_min = 78.34
 initial_velocity_max = 216.59
 gravity = Vector3(0, 0, 0)
-scale_curve = SubResource("CurveTexture_4rql4")
+scale_curve = SubResource("CurveTexture_cvtuf")
 hue_variation_min = -0.01
 hue_variation_max = 0.08
 
-[sub_resource type="Gradient" id="Gradient_x47br"]
+[sub_resource type="Gradient" id="Gradient_c4c3x"]
 colors = PackedColorArray(1, 1, 0, 1, 1, 1, 0, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ckk7k"]
-gradient = SubResource("Gradient_x47br")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_grqkg"]
+gradient = SubResource("Gradient_c4c3x")
 width = 128
 height = 128
 fill = 1
@@ -61,14 +61,14 @@ fill_to = Vector2(1, 0.5)
 _data = [Vector2(0, 0), 0.0, 6.91573, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_4077h"]
+[sub_resource type="CurveTexture" id="CurveTexture_hvnmj"]
 curve = SubResource("Curve_qsudy")
 
 [sub_resource type="Curve" id="Curve_ei08f"]
 _data = [Vector2(0.012285, 0.128866), 0.0, 0.0, 0, 0, Vector2(0.162162, 0.427367), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_7nc51"]
+[sub_resource type="CurveTexture" id="CurveTexture_uiga2"]
 curve = SubResource("Curve_ei08f")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k1v5g"]
@@ -82,10 +82,21 @@ initial_velocity_max = 20.0
 gravity = Vector3(0, 0, 0)
 scale_min = 1.5
 scale_max = 2.0
-scale_curve = SubResource("CurveTexture_7nc51")
-alpha_curve = SubResource("CurveTexture_4077h")
+scale_curve = SubResource("CurveTexture_uiga2")
+alpha_curve = SubResource("CurveTexture_hvnmj")
 hue_variation_min = -0.34
 hue_variation_max = -0.21
+
+[sub_resource type="Gradient" id="Gradient_b5ope"]
+colors = PackedColorArray(0.204701, 0.204701, 2.40654e-08, 1, 1, 1, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ckk7k"]
+gradient = SubResource("Gradient_b5ope")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
 
 [node name="tiles" type="Node2D"]
 script = ExtResource("1_ijpbn")
@@ -101,66 +112,77 @@ texture = ExtResource("1_2m75g")
 texture = ExtResource("2_vba5c")
 
 [node name="1" type="Node2D" parent="."]
-visible = false
 
 [node name="Base" type="Sprite2D" parent="1"]
 texture = ExtResource("2_vba5c")
 
 [node name="4" type="Sprite2D" parent="1"]
-position = Vector2(-24, -136)
+modulate = Color(1, 0.666667, 0.411765, 1)
+position = Vector2(-26, -136)
 texture = ExtResource("4_lvni6")
 
 [node name="11" type="Sprite2D" parent="1"]
+modulate = Color(1, 0.666667, 0.411765, 1)
 position = Vector2(32, -104)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("5_c6dn2")
 
 [node name="12" type="Sprite2D" parent="1"]
+modulate = Color(1, 0.666667, 0.411765, 1)
 position = Vector2(29, -168)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("6_8jasu")
 
 [node name="13" type="Sprite2D" parent="1"]
-position = Vector2(88, -112)
+modulate = Color(1, 0.666667, 0.411765, 1)
+position = Vector2(85, -112)
 texture = ExtResource("7_vldg6")
 
 [node name="14" type="Sprite2D" parent="1"]
-position = Vector2(-48, -112)
-scale = Vector2(0.6, 0.6)
+modulate = Color(1, 0.666667, 0.411765, 1)
+position = Vector2(-48, -168)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("8_hl6jp")
 
 [node name="15" type="Sprite2D" parent="1"]
-position = Vector2(-56, -144)
+modulate = Color(1, 0.666667, 0.411765, 1)
+position = Vector2(-64, -144)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("9_620on")
 
 [node name="6" type="Sprite2D" parent="1"]
+modulate = Color(1, 0.666667, 0.411765, 1)
 position = Vector2(-16, -104)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("4_252nt")
 
 [node name="7" type="Sprite2D" parent="1"]
+modulate = Color(1, 0.666667, 0.411765, 1)
 position = Vector2(-4.99998, -32)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("5_hli06")
 
 [node name="5" type="Sprite2D" parent="1"]
+modulate = Color(1, 0.666667, 0.411765, 1)
 position = Vector2(72, -128)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("6_tx512")
 flip_h = true
 
 [node name="9" type="Sprite2D" parent="1"]
-position = Vector2(-106, -156)
+modulate = Color(1, 0.666667, 0.411765, 1)
+position = Vector2(-99, -156)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("8_87gck")
 
 [node name="8" type="Sprite2D" parent="1"]
-position = Vector2(-4.99998, -179)
+modulate = Color(1, 0.666667, 0.411765, 1)
+position = Vector2(3, -179)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("11_7v2m8")
 
 [node name="10" type="Sprite2D" parent="1"]
+modulate = Color(1, 0.666667, 0.411765, 1)
 position = Vector2(64, -72)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("16_062xd")
@@ -207,70 +229,77 @@ position = Vector2(0, -74)
 emitting = false
 amount = 10
 process_material = SubResource("ParticleProcessMaterial_4h2kp")
-texture = SubResource("GradientTexture2D_ckk7k")
+texture = SubResource("GradientTexture2D_grqkg")
 lifetime = 0.5
 
 [node name="4" type="Node2D" parent="."]
-visible = false
 
 [node name="Base" type="Sprite2D" parent="4"]
 texture = ExtResource("2_vba5c")
 
 [node name="5" type="Sprite2D" parent="4"]
+modulate = Color(0.945098, 1, 0.509804, 1)
 position = Vector2(61, -40)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("19_wxf8m")
 flip_h = true
 
 [node name="6" type="Sprite2D" parent="4"]
+modulate = Color(0.945098, 1, 0.509804, 1)
 position = Vector2(48, -9)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("20_4gtid")
 
 [node name="7" type="Sprite2D" parent="4"]
+modulate = Color(0.945098, 1, 0.509804, 1)
 position = Vector2(-56, -96)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("21_nrvig")
 
 [node name="8" type="Sprite2D" parent="4"]
+modulate = Color(0.945098, 1, 0.509804, 1)
 position = Vector2(-48, -40)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("22_8aagd")
 
 [node name="9" type="Sprite2D" parent="4"]
+modulate = Color(0.945098, 1, 0.509804, 1)
 position = Vector2(40, -88)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("23_0de46")
 
 [node name="10" type="Sprite2D" parent="4"]
+modulate = Color(0.945098, 1, 0.509804, 1)
 position = Vector2(-5, -128)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("24_idwnx")
 
 [node name="11" type="Sprite2D" parent="4"]
+modulate = Color(0.945098, 1, 0.509804, 1)
 position = Vector2(96, -80)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("25_qo0wx")
 
 [node name="12" type="Sprite2D" parent="4"]
+modulate = Color(0.945098, 1, 0.509804, 1)
 position = Vector2(8, -12)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("26_hrdkq")
 
 [node name="13" type="Sprite2D" parent="4"]
+modulate = Color(0.945098, 1, 0.509804, 1)
 position = Vector2(-72, -64)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("27_0x6d7")
 
 [node name="5" type="Node2D" parent="."]
-visible = false
 
 [node name="Base" type="Sprite2D" parent="5"]
 texture = ExtResource("28_td720")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="5"]
+modulate = Color(1, 1, 1, 0.501961)
 position = Vector2(0, -8)
-emitting = false
 process_material = SubResource("ParticleProcessMaterial_k1v5g")
 texture = SubResource("GradientTexture2D_ckk7k")
 lifetime = 3.0

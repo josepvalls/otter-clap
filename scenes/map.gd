@@ -8,8 +8,10 @@ func get_tile_kind_at(coords):
 	# kind legend:
 	# 0 = empty paths
 	# 1 = trees
-	# 2 = mountains
+	# 2 = mountains/walls
 	# 3 = treasure
+	# 4 = immovable trees/walls
+	# 5 = trap
 	var td: TileData = get_cell_tile_data(0, coords)
 	var kind = 0
 	if td:
@@ -21,7 +23,7 @@ func get_tile_kind_at(coords):
 			kind = 2
 		elif td.terrain==2: # this is the special ones
 			kind=3
-		elif td.terrain==6: # this is the special ones
+		elif td.terrain==6: # this a trap
 			kind=5
 		else: # [0, 4]: # 4 is not movable
 			# regular blocks
@@ -62,6 +64,7 @@ func find_path_recreate(coords, node):
 		node = node.source
 		path.append(node.coords)
 	path.reverse()
+	path.pop_front()
 	return path
 	
 
@@ -74,7 +77,7 @@ func find_path(from, to):
 		if current_path==null or current_path.length < node.length:
 			current_path = node
 		for edge in graph[node.coords].edges:
-			if not edge in graph or graph[edge].kind in [0, 4, 3]:
+			if not edge in graph or graph[edge].kind in [0, 4, 3, 5]: # 5 makes them walk on traps
 				pass
 			else:
 				# not passable

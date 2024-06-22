@@ -47,6 +47,7 @@ func _process(delta):
 				tween = create_tween()
 				tween.tween_property(self, "global_position", tilemap.to_global(tilemap.map_to_local(coords)), travel)
 				if current_possession:
+					await get_tree().create_timer(travel/2).timeout
 					terrain_altered.emit(coords, current_possession)
 					terrain_altered.emit(coords-direction_, 0)
 

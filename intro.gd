@@ -1,10 +1,10 @@
 extends Node2D
 
 
-var story_text = [
-	"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed risus ultricies tristique nulla. Maecenas pharetra convallis posuere morbi leo urna molestie at elementum. Aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat. Tortor dignissim convallis aenean et tortor at risus viverra adipiscing. Eget felis eget nunc lobortis mattis.",
-	"Diam volutpat commodo sed egestas egestas fringilla. Semper viverra nam libero justo laoreet sit amet. Faucibus purus in massa tempor nec. Lacus viverra vitae congue eu consequat ac felis donec et. Dui faucibus in ornare quam viverra orci sagittis eu volutpat. Suspendisse faucibus interdum posuere lorem ipsum dolor. Faucibus pulvinar elementum integer enim neque volutpat ac tincidunt vitae. Dictumst quisque sagittis purus sit amet. Netus et malesuada fames ac turpis egestas maecenas pharetra. Egestas egestas fringilla phasellus faucibus scelerisque eleifend donec. Mi eget mauris pharetra et ultrices. Consectetur a erat nam at.",
-	"Some more story..."
+@export var story_text = [
+	"Story about the forest and the magical essence at the core of it...",
+	"Story about the antagonists that come to get it...",
+	"Story about the protector of the forest setting traps for the antagonists..."
 ]
 
 var tween: Tween
@@ -44,26 +44,34 @@ func start_step():
 		tween.tween_callback(start_step)
 	elif step==3:
 		tween = create_tween()
+		$i3/img1.show()
 		$i3/Label.text = story_text[0]
 		$i3/Label.visible_ratio = 0
 		tween.tween_property($i3/Label, "visible_ratio", 1.0, t*2.0)
 	elif step==4:
+		$i3/img1.hide()
+		$i3/img2.show()
 		tween = create_tween()
 		$i3/Label.text = story_text[1]
 		$i3/Label.visible_ratio = 0
 		tween.tween_property($i3/Label, "visible_ratio", 1.0, t*2.0)
 	elif step==5:
+		$i3/img2.hide()
+		$i3/img3.show()
 		tween = create_tween()
 		$i3/Label.text = story_text[2]
 		$i3/Label.visible_ratio = 0
 		tween.tween_property($i3/Label, "visible_ratio", 1.0, t*2.0)
 	elif step==6:
+		$i4.show()
 		tween = create_tween()
 		tween.tween_property($i4, "modulate", Color(1,1,1,1), t)
 		tween.tween_callback(start_step)
 	elif step==7:
 		$continue.hide()
 		$menu.show()
+	elif step==8:
+		main_menu_play()
 	step += 1
 	
 func main_menu_play():
@@ -86,4 +94,4 @@ func _input(event):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	elapsed += delta
-	$continue.modulate = Color(1,1,1,abs(cos(elapsed*6)))
+	$continue.modulate = Color(1,1,1,abs(cos(elapsed*3)))

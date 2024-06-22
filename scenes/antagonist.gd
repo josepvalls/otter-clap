@@ -4,6 +4,7 @@ class_name Antagonist
 var exits = [Vector2i(30,14), Vector2i(30,5)]
 var coords = Vector2i(30,14)
 var goal = Vector2i(5,8)
+var target = Vector2i.ZERO
 @export var map: MyTileMap
 @onready var navigation_agent: NavigationAgent2D
 var path: Array = []

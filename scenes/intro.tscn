@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bi2s8xpyec0ds"]
+[gd_scene load_steps=31 format=3 uid="uid://bi2s8xpyec0ds"]
 
 [ext_resource type="Script" path="res://intro.gd" id="1_yox5o"]
 [ext_resource type="Texture2D" uid="uid://b88oarnemk0fe" path="res://sprites/intro/Wildling-Wallpaper 1080.png" id="2_jyfay"]
@@ -7,7 +7,86 @@
 [ext_resource type="Texture2D" uid="uid://cl3x0mbw30g4y" path="res://sprites/intro/takeover.png" id="5_2tfp0"]
 [ext_resource type="Texture2D" uid="uid://paooyl7brd5h" path="res://sprites/intro/intro.png" id="6_ljuv8"]
 [ext_resource type="Texture2D" uid="uid://dlkm33fpw0eeo" path="res://sprites/paper.png" id="7_0kavs"]
+[ext_resource type="Texture2D" uid="uid://bis84mqbxjn6j" path="res://sprites/Base/Base-3.png" id="8_fj5eb"]
 [ext_resource type="FontFile" uid="uid://bgb1ygnv2vrjd" path="res://fonts/Rosharp.ttf" id="8_xevi8"]
+[ext_resource type="Texture2D" uid="uid://cdfwcn84n06g5" path="res://sprites/Trees/7.png" id="9_x8v2b"]
+[ext_resource type="Texture2D" uid="uid://cyowmis1ny2tl" path="res://sprites/Stumps/6.png" id="10_wwesj"]
+[ext_resource type="Texture2D" uid="uid://ckdv5mgws81kv" path="res://sprites/Plants/6.png" id="11_k6epl"]
+[ext_resource type="Texture2D" uid="uid://cv8xe1etygfyg" path="res://sprites/Plants/4.png" id="12_xusxy"]
+[ext_resource type="Texture2D" uid="uid://dbs6fftc4gvsi" path="res://sprites/Plants/5.png" id="13_3gkqi"]
+[ext_resource type="Texture2D" uid="uid://dpeg7xj50fcex" path="res://sprites/Stumps/1.png" id="14_32u2v"]
+[ext_resource type="Texture2D" uid="uid://bpwmsfj5u1q71" path="res://sprites/blob.png" id="15_bp41x"]
+[ext_resource type="Texture2D" uid="uid://0q8agf4gnpct" path="res://sprites/red.png" id="16_v8ppc"]
+[ext_resource type="Texture2D" uid="uid://c2tv3fav2q82q" path="res://sprites/Base/Base-1.png" id="17_3wcee"]
+
+[sub_resource type="Curve" id="Curve_eley7"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_4rql4"]
+curve = SubResource("Curve_eley7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_s6qfm"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 78.34
+initial_velocity_max = 216.59
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_4rql4")
+hue_variation_min = -0.01
+hue_variation_max = 0.08
+
+[sub_resource type="Gradient" id="Gradient_x47br"]
+colors = PackedColorArray(1, 1, 0, 1, 1, 1, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gkfvn"]
+gradient = SubResource("Gradient_x47br")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Curve" id="Curve_bx2gf"]
+_data = [Vector2(0, 0), 0.0, 6.91573, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_4077h"]
+curve = SubResource("Curve_bx2gf")
+
+[sub_resource type="Curve" id="Curve_t4bvn"]
+_data = [Vector2(0.012285, 0.128866), 0.0, 0.0, 0, 0, Vector2(0.162162, 0.427367), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_7nc51"]
+curve = SubResource("Curve_t4bvn")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_722i1"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 67.06
+direction = Vector3(0, -1, 0)
+spread = 20.0
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+gravity = Vector3(0, 0, 0)
+scale_min = 1.5
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_7nc51")
+alpha_curve = SubResource("CurveTexture_4077h")
+hue_variation_min = -0.34
+hue_variation_max = -0.21
+
+[sub_resource type="Gradient" id="Gradient_j7hs3"]
+colors = PackedColorArray(1, 1, 0, 1, 1, 1, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_py3og"]
+gradient = SubResource("Gradient_j7hs3")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
 
 [node name="intro" type="Node2D"]
 script = ExtResource("1_yox5o")
@@ -52,15 +131,323 @@ position = Vector2(952, 744)
 texture = ExtResource("7_0kavs")
 
 [node name="Label" type="Label" parent="i3"]
-offset_right = 1920.0
-offset_bottom = 2589.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0.67451, 0.207843, 0.113725, 1)
+offset_left = 712.0
+offset_top = 40.0
+offset_right = 1916.0
+offset_bottom = 2101.0
+theme_override_colors/font_color = Color(0.109804, 0.0784314, 0.054902, 1)
+theme_override_colors/font_outline_color = Color(0.380392, 0.34902, 0.313726, 1)
 theme_override_constants/outline_size = 6
 theme_override_fonts/font = ExtResource("8_xevi8")
-theme_override_font_sizes/font_size = 120
+theme_override_font_sizes/font_size = 80
 text = "Story goes here..."
 autowrap_mode = 2
+
+[node name="img1" type="Node2D" parent="i3"]
+visible = false
+position = Vector2(-1064, 232)
+scale = Vector2(1.6, 1.6)
+
+[node name="b1" type="Node2D" parent="i3/img1"]
+position = Vector2(931, 288)
+
+[node name="Base2" type="Sprite2D" parent="i3/img1/b1"]
+texture = ExtResource("8_fj5eb")
+
+[node name="15" type="Sprite2D" parent="i3/img1/b1"]
+position = Vector2(-56, -144)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("9_x8v2b")
+
+[node name="6" type="Sprite2D" parent="i3/img1/b1"]
+position = Vector2(-16, -104)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("10_wwesj")
+
+[node name="b2" type="Node2D" parent="i3/img1"]
+position = Vector2(1064, 358)
+
+[node name="Base2" type="Sprite2D" parent="i3/img1/b2"]
+texture = ExtResource("8_fj5eb")
+
+[node name="17" type="Sprite2D" parent="i3/img1/b2"]
+position = Vector2(21, -144)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("9_x8v2b")
+flip_h = true
+
+[node name="16" type="Sprite2D" parent="i3/img1/b2"]
+position = Vector2(-5, -128)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_k6epl")
+
+[node name="14" type="Sprite2D" parent="i3/img1/b2"]
+position = Vector2(-64, -48)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_xusxy")
+
+[node name="15" type="Sprite2D" parent="i3/img1/b2"]
+position = Vector2(88, -54)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("13_3gkqi")
+
+[node name="b3" type="Node2D" parent="i3/img1"]
+position = Vector2(808, 358)
+
+[node name="Base2" type="Sprite2D" parent="i3/img1/b3"]
+texture = ExtResource("8_fj5eb")
+
+[node name="16" type="Sprite2D" parent="i3/img1/b3"]
+position = Vector2(-5, -128)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_k6epl")
+
+[node name="7" type="Sprite2D" parent="i3/img1/b3"]
+position = Vector2(-32, -22)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("14_32u2v")
+
+[node name="15" type="Sprite2D" parent="i3/img1/b3"]
+position = Vector2(72, -64)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("13_3gkqi")
+
+[node name="a" type="Node2D" parent="i3/img1"]
+position = Vector2(936, 432)
+
+[node name="Base2" type="Sprite2D" parent="i3/img1/a"]
+texture = ExtResource("8_fj5eb")
+
+[node name="16" type="Sprite2D" parent="i3/img1/a"]
+position = Vector2(-5, -128)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_k6epl")
+
+[node name="14" type="Sprite2D" parent="i3/img1/a"]
+position = Vector2(-64, -48)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_xusxy")
+
+[node name="15" type="Sprite2D" parent="i3/img1/a"]
+position = Vector2(72, -64)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("13_3gkqi")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="i3/img1/a"]
+position = Vector2(0, -74)
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_s6qfm")
+texture = SubResource("GradientTexture2D_gkfvn")
+lifetime = 0.5
+
+[node name="blue" type="Node2D" parent="i3/img1"]
+position = Vector2(785.444, 531.685)
+
+[node name="blue" type="Sprite2D" parent="i3/img1/blue"]
+position = Vector2(0, -84.5863)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("15_bp41x")
+
+[node name="img2" type="Node2D" parent="i3"]
+visible = false
+position = Vector2(-1064, 232)
+scale = Vector2(1.6, 1.6)
+
+[node name="red" type="Sprite2D" parent="i3/img2"]
+position = Vector2(1028.2, 269.386)
+rotation = 1.5708
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("16_v8ppc")
+offset = Vector2(-220, 0)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="i3/img2"]
+position = Vector2(955.702, 166.674)
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_s6qfm")
+texture = SubResource("GradientTexture2D_gkfvn")
+lifetime = 0.5
+
+[node name="b1" type="Node2D" parent="i3/img2"]
+position = Vector2(931, 288)
+
+[node name="Base2" type="Sprite2D" parent="i3/img2/b1"]
+texture = ExtResource("8_fj5eb")
+
+[node name="15" type="Sprite2D" parent="i3/img2/b1"]
+position = Vector2(-56, -144)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("9_x8v2b")
+
+[node name="6" type="Sprite2D" parent="i3/img2/b1"]
+position = Vector2(-16, -104)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("10_wwesj")
+
+[node name="b2" type="Node2D" parent="i3/img2"]
+position = Vector2(1064, 358)
+
+[node name="Base2" type="Sprite2D" parent="i3/img2/b2"]
+texture = ExtResource("8_fj5eb")
+
+[node name="17" type="Sprite2D" parent="i3/img2/b2"]
+position = Vector2(21, -144)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("9_x8v2b")
+flip_h = true
+
+[node name="16" type="Sprite2D" parent="i3/img2/b2"]
+position = Vector2(-5, -128)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_k6epl")
+
+[node name="14" type="Sprite2D" parent="i3/img2/b2"]
+position = Vector2(-64, -48)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_xusxy")
+
+[node name="15" type="Sprite2D" parent="i3/img2/b2"]
+position = Vector2(88, -54)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("13_3gkqi")
+
+[node name="b3" type="Node2D" parent="i3/img2"]
+position = Vector2(808, 358)
+
+[node name="Base2" type="Sprite2D" parent="i3/img2/b3"]
+texture = ExtResource("8_fj5eb")
+
+[node name="16" type="Sprite2D" parent="i3/img2/b3"]
+position = Vector2(-5, -128)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_k6epl")
+
+[node name="7" type="Sprite2D" parent="i3/img2/b3"]
+position = Vector2(-32, -22)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("14_32u2v")
+
+[node name="15" type="Sprite2D" parent="i3/img2/b3"]
+position = Vector2(72, -64)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("13_3gkqi")
+
+[node name="a" type="Node2D" parent="i3/img2"]
+position = Vector2(936, 432)
+
+[node name="Base2" type="Sprite2D" parent="i3/img2/a"]
+texture = ExtResource("8_fj5eb")
+
+[node name="16" type="Sprite2D" parent="i3/img2/a"]
+position = Vector2(-5, -128)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_k6epl")
+
+[node name="14" type="Sprite2D" parent="i3/img2/a"]
+position = Vector2(-64, -48)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_xusxy")
+
+[node name="15" type="Sprite2D" parent="i3/img2/a"]
+position = Vector2(72, -64)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("13_3gkqi")
+
+[node name="blue" type="Node2D" parent="i3/img2"]
+visible = false
+position = Vector2(785.444, 531.685)
+
+[node name="blue" type="Sprite2D" parent="i3/img2/blue"]
+position = Vector2(0, -84.5863)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("15_bp41x")
+
+[node name="img3" type="Node2D" parent="i3"]
+visible = false
+position = Vector2(-1064, 232)
+scale = Vector2(1.6, 1.6)
+
+[node name="b1" type="Node2D" parent="i3/img3"]
+position = Vector2(931, 288)
+
+[node name="Base2" type="Sprite2D" parent="i3/img3/b1"]
+texture = ExtResource("8_fj5eb")
+
+[node name="15" type="Sprite2D" parent="i3/img3/b1"]
+position = Vector2(-56, -144)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("9_x8v2b")
+
+[node name="6" type="Sprite2D" parent="i3/img3/b1"]
+position = Vector2(-16, -104)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("10_wwesj")
+
+[node name="b2" type="Node2D" parent="i3/img3"]
+position = Vector2(1064, 358)
+
+[node name="Base2" type="Sprite2D" parent="i3/img3/b2"]
+texture = ExtResource("8_fj5eb")
+
+[node name="17" type="Sprite2D" parent="i3/img3/b2"]
+position = Vector2(21, -144)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("9_x8v2b")
+flip_h = true
+
+[node name="16" type="Sprite2D" parent="i3/img3/b2"]
+position = Vector2(-5, -128)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_k6epl")
+
+[node name="14" type="Sprite2D" parent="i3/img3/b2"]
+position = Vector2(-64, -48)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_xusxy")
+
+[node name="15" type="Sprite2D" parent="i3/img3/b2"]
+position = Vector2(88, -54)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("13_3gkqi")
+
+[node name="b3" type="Node2D" parent="i3/img3"]
+position = Vector2(808, 358)
+
+[node name="Base2" type="Sprite2D" parent="i3/img3/b3"]
+texture = ExtResource("8_fj5eb")
+
+[node name="16" type="Sprite2D" parent="i3/img3/b3"]
+position = Vector2(-5, -128)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_k6epl")
+
+[node name="7" type="Sprite2D" parent="i3/img3/b3"]
+position = Vector2(-32, -22)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("14_32u2v")
+
+[node name="15" type="Sprite2D" parent="i3/img3/b3"]
+position = Vector2(72, -64)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("13_3gkqi")
+
+[node name="5" type="Node2D" parent="i3/img3"]
+position = Vector2(935.736, 431.994)
+
+[node name="Base" type="Sprite2D" parent="i3/img3/5"]
+texture = ExtResource("17_3wcee")
+
+[node name="red" type="Sprite2D" parent="i3/img3/5"]
+position = Vector2(0.755234, 15.1047)
+rotation = 1.5708
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("16_v8ppc")
+offset = Vector2(-220, 0)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="i3/img3/5"]
+position = Vector2(0, -8)
+process_material = SubResource("ParticleProcessMaterial_722i1")
+texture = SubResource("GradientTexture2D_py3og")
+lifetime = 3.0
 
 [node name="i4" type="Node2D" parent="."]
 
@@ -72,13 +459,41 @@ texture = ExtResource("6_ljuv8")
 [node name="menu" type="Node2D" parent="."]
 
 [node name="Button" type="Button" parent="menu"]
-offset_left = 192.0
-offset_top = 128.0
-offset_right = 512.0
-offset_bottom = 320.0
+visible = false
+offset_left = 1440.0
+offset_top = 368.0
+offset_right = 1760.0
+offset_bottom = 560.0
 text = "Start game"
 
+[node name="continue" type="Label" parent="menu"]
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 768.0
+offset_bottom = 1541.0
+theme_override_colors/font_color = Color(0.109804, 0.0784314, 0.054902, 1)
+theme_override_colors/font_outline_color = Color(0.380392, 0.34902, 0.313726, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("8_xevi8")
+theme_override_font_sizes/font_size = 60
+text = "A game for Godot Wild jam 70
+
+Programming:
+Josep Valls, HeroCreep, IANYEYZ
+
+Hand drawn art:
+Leenad
+
+Score and SFX:
+Bryn Kirsch
+
+
+
+Press \"space\" to start"
+autowrap_mode = 2
+
 [node name="fadeout" type="Node2D" parent="."]
+visible = false
 
 [node name="bg2" type="ColorRect" parent="fadeout"]
 offset_right = 1920.0
@@ -86,11 +501,11 @@ offset_bottom = 1080.0
 color = Color(0.0705882, 0.133333, 0.247059, 1)
 
 [node name="continue" type="Label" parent="."]
-offset_top = 1040.0
+offset_top = 1008.0
 offset_right = 1920.0
-offset_bottom = 2589.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0.67451, 0.207843, 0.113725, 1)
+offset_bottom = 2557.0
+theme_override_colors/font_color = Color(0.109804, 0.0784314, 0.054902, 1)
+theme_override_colors/font_outline_color = Color(0.380392, 0.34902, 0.313726, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("8_xevi8")
 theme_override_font_sizes/font_size = 60

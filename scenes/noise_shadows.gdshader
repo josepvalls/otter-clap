@@ -21,5 +21,5 @@ float noise(vec2 uv) {
 
 
 void fragment() {
-	COLOR.a = clamp(noise(UV*3.0+tr), 0.0, 0.8);
+	COLOR.a = clamp(noise(UV+tr), 0.0, 0.6);
 }

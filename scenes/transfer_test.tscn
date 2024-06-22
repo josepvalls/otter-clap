@@ -19,7 +19,7 @@ size = Vector2i(1920, 1080)
 
 [node name="isometric_test2" parent="view/SubViewport" instance=ExtResource("8_l0tqj")]
 position = Vector2(960, 0)
-scale = Vector2(0.45, 0.45)
+scale = Vector2(0.75, 0.75)
 
 [node name="map_test" parent="." instance=ExtResource("3_bcywv")]
-position = Vector2(-32, -632)
+position = Vector2(-104, -645)

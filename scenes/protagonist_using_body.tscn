@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqgacpwtom1w1"]
+
+[ext_resource type="Script" path="res://scenes/protagonist.gd" id="1_6f3j2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yashs"]
+radius = 9.0554
+
+[node name="protagonist" type="CharacterBody2D"]
+position = Vector2(377, 408)
+collision_mask = 0
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_6f3j2")
+
+[node name="protagonist" type="Node2D" parent="."]
+
+[node name="protagonist" type="Polygon2D" parent="protagonist"]
+position = Vector2(309, -49)
+scale = Vector2(0.1, 0.1)
+color = Color(0, 0.819608, 0, 1)
+polygon = PackedVector2Array(-3170, 470, -3140, 540, -3070, 580, -2990, 560, -2920, 460, -3020, 490, -3080, 500)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_yashs")
+disabled = true

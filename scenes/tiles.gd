@@ -16,6 +16,10 @@ func set_kind(kind):
 	$"1".hide()
 	$"2".hide()
 	$"3".hide()
+	$"4".hide()
+	$"5".hide()
+	$"3/GPUParticles2D".emitting = false
+	$"5/GPUParticles2D".emitting = false
 	if kind==0:
 		$"0".show()
 		for child in $"0".get_children():
@@ -27,7 +31,7 @@ func set_kind(kind):
 		for child in $"1".get_children():
 			if child.name == "Base":
 				continue
-			child.visible = bool(randf()<0.5)
+			child.visible = bool(randf()<0.3)
 		z_index = 0
 	elif kind==2:
 		$"2".show()
@@ -38,3 +42,14 @@ func set_kind(kind):
 	elif kind==3:
 		$"3".show()
 		$"3/GPUParticles2D".emitting = true
+	elif kind==4:
+		$"4".show()
+		for child in $"4".get_children():
+			if child.name == "Base":
+				continue
+			child.visible = bool(randf()<0.5)
+		z_index = 0
+	elif kind==5:
+		$"5".show()
+		$"5/GPUParticles2D".emitting = true
+

@@ -1,25 +1,22 @@
-extends CharacterBody2D
+extends Node2D
+class_name Antagonist
 
-@export var target: Node2D
-var speed = 100
-var acceleration = 300
-
+var exits = [Vector2i(30,14), Vector2i(30,5)]
+var coords = Vector2i(30,14)
+var goal = Vector2i(5,8)
+@export var map: MyTileMap
 @onready var navigation_agent: NavigationAgent2D
-
+var path: Array = []
 func _ready():
-	navigation_agent = $NavigationAgent2D
-	navigation_agent.target_position = target.global_position
+	pass
+	#navigation_agent = $NavigationAgent2D
+	#navigation_agent.target_position = target.global_position
 	#print(navigation_agent.target_position, global_position, navigation_agent.get_next_path_position())
 
 func _process(delta):
-	#var direction = Vector2.ZERO
-	var direction = navigation_agent.get_next_path_position() - global_position
-	
-	#print(direction, velocity)
-	direction = direction.normalized()
-	
-	velocity = velocity.lerp(direction * speed, acceleration * delta)
-	velocity = direction * speed
-	
-	
-	move_and_slide()
+	pass
+	#var direction = navigation_agent.get_next_path_position() - global_position
+	#direction = direction.normalized()
+	#velocity = velocity.lerp(direction * speed, acceleration * delta)
+	#velocity = direction * speed
+	#move_and_slide()

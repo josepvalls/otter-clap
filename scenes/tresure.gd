@@ -12,4 +12,7 @@ func _process(delta):
 
 
 func escape(area_or_body):
-	$"../antagonist/NavigationAgent2D".target_position = $"../exit2".global_position
+	if randf() < 0.5:
+		$"../antagonist/NavigationAgent2D".target_position = $"../exit1".global_position
+	else:
+		$"../antagonist/NavigationAgent2D".target_position = $"../exit2".global_position

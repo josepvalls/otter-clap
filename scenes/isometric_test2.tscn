@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://vlgj4roi1fa5"]
+[gd_scene load_steps=19 format=3 uid="uid://vlgj4roi1fa5"]
 
 [ext_resource type="Texture2D" uid="uid://dlkm33fpw0eeo" path="res://sprites/paper.png" id="1_5o4qo"]
 [ext_resource type="Script" path="res://scenes/isometric_test2.gd" id="1_uc2ye"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://0q8agf4gnpct" path="res://sprites/red.png" id="4_lujye"]
 [ext_resource type="PackedScene" uid="uid://fukvyy4fhb13" path="res://scenes/tiles.tscn" id="5_82irw"]
 [ext_resource type="Texture2D" uid="uid://bpwmsfj5u1q71" path="res://sprites/blob.png" id="5_i1vwp"]
+[ext_resource type="Script" path="res://scenes/blue.gd" id="6_7aack"]
 [ext_resource type="Shader" path="res://scenes/noise_shadows.gdshader" id="7_35p6v"]
 [ext_resource type="Texture2D" uid="uid://ddjfxlb224vet" path="res://sprites/shadow.png" id="8_6ogne"]
 [ext_resource type="Script" path="res://scenes/Shadow_moving.gd" id="9_2ektl"]
@@ -23,6 +24,36 @@ fill = 1
 fill_from = Vector2(0.504274, 0.495726)
 fill_to = Vector2(1, 0.5)
 
+[sub_resource type="Curve" id="Curve_tpeyj"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_8cq82"]
+curve = SubResource("Curve_tpeyj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mxl0g"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 30.0
+direction = Vector3(0, -1, 0)
+spread = 0.0
+initial_velocity_min = 78.34
+initial_velocity_max = 216.59
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_8cq82")
+hue_variation_min = -1.0
+hue_variation_max = -1.0
+
+[sub_resource type="Gradient" id="Gradient_w4gjk"]
+offsets = PackedFloat32Array(0.00486618, 1)
+colors = PackedColorArray(0.572022, 0.758504, 0.754167, 1, 0.388235, 0.537255, 0.635294, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_oe5v2"]
+gradient = SubResource("Gradient_w4gjk")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_twth0"]
 shader = ExtResource("7_35p6v")
 shader_parameter/tr = Vector2(0, 0)
@@ -33,25 +64,14 @@ script = ExtResource("1_uc2ye")
 [node name="Paper" type="Sprite2D" parent="."]
 z_index = -2
 texture_repeat = 3
-position = Vector2(-3072, -512)
+position = Vector2(-5256, -512)
 texture = ExtResource("1_5o4qo")
 centered = false
 region_enabled = true
-region_rect = Rect2(0, 0, 6144, 6144)
+region_rect = Rect2(0, 0, 12288, 4096)
 
 [node name="ysorter" type="Node2D" parent="."]
 y_sort_enabled = true
-
-[node name="blue" type="Sprite2D" parent="ysorter"]
-material = ExtResource("3_ymyha")
-position = Vector2(320, 440)
-scale = Vector2(0.15, 0.15)
-texture = ExtResource("5_i1vwp")
-offset = Vector2(0, -440)
-
-[node name="PointLight2D" type="PointLight2D" parent="ysorter/blue"]
-color = Color(0, 0, 1, 1)
-texture = SubResource("GradientTexture2D_t5ydc")
 
 [node name="red" type="Sprite2D" parent="ysorter"]
 material = ExtResource("3_ymyha")
@@ -69,12 +89,48 @@ color = Color(1, 0, 0, 1)
 texture = SubResource("GradientTexture2D_t5ydc")
 
 [node name="tiles0" parent="ysorter" instance=ExtResource("5_82irw")]
+position = Vector2(0, -704)
+
+[node name="blue" type="Node2D" parent="ysorter"]
+script = ExtResource("6_7aack")
+
+[node name="PointLight2D" type="PointLight2D" parent="ysorter/blue"]
+scale = Vector2(0.15, 0.15)
+color = Color(0, 0, 1, 1)
+texture = SubResource("GradientTexture2D_t5ydc")
+
+[node name="Camera2D" type="Camera2D" parent="ysorter/blue"]
+
+[node name="blue" type="Sprite2D" parent="ysorter/blue"]
+material = ExtResource("3_ymyha")
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("5_i1vwp")
+
+[node name="hint" type="GPUParticles2D" parent="ysorter/blue"]
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_mxl0g")
+texture = SubResource("GradientTexture2D_oe5v2")
+lifetime = 0.5
+
+[node name="radar" type="Node2D" parent="ysorter/blue"]
+
+[node name="red2" type="Sprite2D" parent="ysorter/blue/radar"]
+light_mask = 0
+z_index = 2
+position = Vector2(96, 1.52588e-05)
+rotation = 3.14159
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_lujye")
+offset = Vector2(-220, 0)
 
 [node name="Shadow" type="Sprite2D" parent="."]
+texture_repeat = 3
 material = SubResource("ShaderMaterial_twth0")
-position = Vector2(-16, 2136)
-scale = Vector2(5.14844, 5.14844)
+position = Vector2(-5264, -512)
 texture = ExtResource("8_6ogne")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 12288, 4096)
 script = ExtResource("9_2ektl")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]

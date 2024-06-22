@@ -1,0 +1,305 @@
+[gd_scene load_steps=41 format=3 uid="uid://fukvyy4fhb13"]
+
+[ext_resource type="Texture2D" uid="uid://uk5vkqgqetb" path="res://sprites/Base/Base-5.png" id="1_2m75g"]
+[ext_resource type="Script" path="res://scenes/tiles.gd" id="1_ijpbn"]
+[ext_resource type="Texture2D" uid="uid://dkp0k8r0mj0ey" path="res://sprites/Base/Base-3.png" id="2_vba5c"]
+[ext_resource type="Texture2D" uid="uid://c1h535hiocu03" path="res://sprites/Stumps/6.png" id="4_252nt"]
+[ext_resource type="Texture2D" uid="uid://cp5upf2vcco88" path="res://sprites/Trees/1.png" id="4_lvni6"]
+[ext_resource type="Texture2D" uid="uid://dnrhbipop08cg" path="res://sprites/Trees/3.png" id="5_c6dn2"]
+[ext_resource type="Texture2D" uid="uid://4yi5gu5sjitd" path="res://sprites/Stumps/1.png" id="5_hli06"]
+[ext_resource type="Texture2D" uid="uid://css0ydthr077s" path="res://sprites/Trees/4.png" id="6_8jasu"]
+[ext_resource type="Texture2D" uid="uid://b2yxht48qwtnv" path="res://sprites/Stumps/5.png" id="6_tx512"]
+[ext_resource type="Texture2D" uid="uid://2ret704tjf07" path="res://sprites/Trees/5.png" id="7_vldg6"]
+[ext_resource type="Texture2D" uid="uid://d022q0mdt3wwh" path="res://sprites/2.png" id="8_87gck"]
+[ext_resource type="Texture2D" uid="uid://bvij50wsf78dk" path="res://sprites/Trees/6.png" id="8_hl6jp"]
+[ext_resource type="Texture2D" uid="uid://dary2ls0kaomo" path="res://sprites/Trees/7.png" id="9_620on"]
+[ext_resource type="Texture2D" uid="uid://dvkijxtsltjda" path="res://sprites/Wall/wall01.png" id="9_wpejm"]
+[ext_resource type="Texture2D" uid="uid://cq2ijovqvuwfs" path="res://sprites/Wall/wall02.png" id="10_q3wr2"]
+[ext_resource type="Texture2D" uid="uid://bj1yxoij1l6cl" path="res://sprites/8.png" id="11_7v2m8"]
+[ext_resource type="Texture2D" uid="uid://r6ftu2hllk87" path="res://sprites/Wall/wall03.png" id="11_7yj6x"]
+[ext_resource type="Texture2D" uid="uid://dovsmaeo7p3lt" path="res://sprites/9.png" id="16_062xd"]
+[ext_resource type="Texture2D" uid="uid://c8ne60te3u57x" path="res://sprites/Plants/1.png" id="19_wxf8m"]
+[ext_resource type="Texture2D" uid="uid://beres4jlsaoj8" path="res://sprites/Plants/2.png" id="20_4gtid"]
+[ext_resource type="Texture2D" uid="uid://qqcdpgmp242m" path="res://sprites/Plants/3.png" id="21_nrvig"]
+[ext_resource type="Texture2D" uid="uid://cplk5armi0b80" path="res://sprites/Plants/4.png" id="22_8aagd"]
+[ext_resource type="Texture2D" uid="uid://djqdl63a20iex" path="res://sprites/Plants/5.png" id="23_0de46"]
+[ext_resource type="Texture2D" uid="uid://ceq2x8abmyak6" path="res://sprites/Plants/6.png" id="24_idwnx"]
+[ext_resource type="Texture2D" uid="uid://ebew1h1wu0g" path="res://sprites/Plants/7.png" id="25_qo0wx"]
+[ext_resource type="Texture2D" uid="uid://dqygn6lja0ni4" path="res://sprites/Plants/8.png" id="26_hrdkq"]
+[ext_resource type="Texture2D" uid="uid://dncqlswo8uyb0" path="res://sprites/Plants/9.png" id="27_0x6d7"]
+[ext_resource type="Texture2D" uid="uid://ivkxmvvfjql1" path="res://sprites/Base/Base-1.png" id="28_td720"]
+
+[sub_resource type="Curve" id="Curve_jf2lf"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_cvtuf"]
+curve = SubResource("Curve_jf2lf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4h2kp"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 78.34
+initial_velocity_max = 216.59
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_cvtuf")
+hue_variation_min = -0.01
+hue_variation_max = 0.08
+
+[sub_resource type="Gradient" id="Gradient_c4c3x"]
+colors = PackedColorArray(1, 1, 0, 1, 1, 1, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_grqkg"]
+gradient = SubResource("Gradient_c4c3x")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Curve" id="Curve_qsudy"]
+_data = [Vector2(0, 0), 0.0, 6.91573, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_hvnmj"]
+curve = SubResource("Curve_qsudy")
+
+[sub_resource type="Curve" id="Curve_ei08f"]
+_data = [Vector2(0.012285, 0.128866), 0.0, 0.0, 0, 0, Vector2(0.162162, 0.427367), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_uiga2"]
+curve = SubResource("Curve_ei08f")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k1v5g"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 67.06
+direction = Vector3(0, -1, 0)
+spread = 20.0
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+gravity = Vector3(0, 0, 0)
+scale_min = 1.5
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_uiga2")
+alpha_curve = SubResource("CurveTexture_hvnmj")
+hue_variation_min = -0.34
+hue_variation_max = -0.21
+
+[sub_resource type="Gradient" id="Gradient_b5ope"]
+colors = PackedColorArray(0.204701, 0.204701, 2.40654e-08, 1, 1, 1, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ckk7k"]
+gradient = SubResource("Gradient_b5ope")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[node name="tiles" type="Node2D"]
+script = ExtResource("1_ijpbn")
+
+[node name="0" type="Node2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.894118)
+
+[node name="Base-5" type="Sprite2D" parent="0"]
+texture = ExtResource("1_2m75g")
+
+[node name="Base-3" type="Sprite2D" parent="0"]
+texture = ExtResource("2_vba5c")
+
+[node name="1" type="Node2D" parent="."]
+
+[node name="Base" type="Sprite2D" parent="1"]
+texture = ExtResource("2_vba5c")
+
+[node name="4" type="Sprite2D" parent="1"]
+modulate = Color(1, 0.666667, 0.411765, 1)
+position = Vector2(-26, -136)
+texture = ExtResource("4_lvni6")
+
+[node name="11" type="Sprite2D" parent="1"]
+modulate = Color(1, 0.666667, 0.411765, 1)
+position = Vector2(32, -104)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_c6dn2")
+
+[node name="12" type="Sprite2D" parent="1"]
+modulate = Color(1, 0.666667, 0.411765, 1)
+position = Vector2(29, -168)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_8jasu")
+
+[node name="13" type="Sprite2D" parent="1"]
+modulate = Color(1, 0.666667, 0.411765, 1)
+position = Vector2(85, -112)
+texture = ExtResource("7_vldg6")
+
+[node name="14" type="Sprite2D" parent="1"]
+modulate = Color(1, 0.666667, 0.411765, 1)
+position = Vector2(-48, -168)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_hl6jp")
+
+[node name="15" type="Sprite2D" parent="1"]
+modulate = Color(1, 0.666667, 0.411765, 1)
+position = Vector2(-64, -144)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("9_620on")
+
+[node name="6" type="Sprite2D" parent="1"]
+modulate = Color(1, 0.666667, 0.411765, 1)
+position = Vector2(-16, -104)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_252nt")
+
+[node name="7" type="Sprite2D" parent="1"]
+modulate = Color(1, 0.666667, 0.411765, 1)
+position = Vector2(-4.99998, -32)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("5_hli06")
+
+[node name="5" type="Sprite2D" parent="1"]
+modulate = Color(1, 0.666667, 0.411765, 1)
+position = Vector2(72, -128)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_tx512")
+flip_h = true
+
+[node name="9" type="Sprite2D" parent="1"]
+modulate = Color(1, 0.666667, 0.411765, 1)
+position = Vector2(-99, -156)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("8_87gck")
+
+[node name="8" type="Sprite2D" parent="1"]
+modulate = Color(1, 0.666667, 0.411765, 1)
+position = Vector2(3, -179)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("11_7v2m8")
+
+[node name="10" type="Sprite2D" parent="1"]
+modulate = Color(1, 0.666667, 0.411765, 1)
+position = Vector2(64, -72)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("16_062xd")
+flip_h = true
+
+[node name="2" type="Node2D" parent="."]
+visible = false
+
+[node name="Wall01" type="Sprite2D" parent="2"]
+position = Vector2(3, -51)
+texture = ExtResource("9_wpejm")
+
+[node name="Wall02" type="Sprite2D" parent="2"]
+position = Vector2(-1, -41)
+texture = ExtResource("10_q3wr2")
+
+[node name="Wall03" type="Sprite2D" parent="2"]
+position = Vector2(-2, -39)
+texture = ExtResource("11_7yj6x")
+
+[node name="3" type="Node2D" parent="."]
+visible = false
+
+[node name="Base2" type="Sprite2D" parent="3"]
+texture = ExtResource("2_vba5c")
+
+[node name="16" type="Sprite2D" parent="3"]
+position = Vector2(-5, -128)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("24_idwnx")
+
+[node name="14" type="Sprite2D" parent="3"]
+position = Vector2(-64, -48)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("22_8aagd")
+
+[node name="15" type="Sprite2D" parent="3"]
+position = Vector2(72, -64)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("23_0de46")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="3"]
+position = Vector2(0, -74)
+emitting = false
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_4h2kp")
+texture = SubResource("GradientTexture2D_grqkg")
+lifetime = 0.5
+
+[node name="4" type="Node2D" parent="."]
+
+[node name="Base" type="Sprite2D" parent="4"]
+texture = ExtResource("2_vba5c")
+
+[node name="5" type="Sprite2D" parent="4"]
+modulate = Color(0.945098, 1, 0.509804, 1)
+position = Vector2(61, -40)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("19_wxf8m")
+flip_h = true
+
+[node name="6" type="Sprite2D" parent="4"]
+modulate = Color(0.945098, 1, 0.509804, 1)
+position = Vector2(48, -9)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("20_4gtid")
+
+[node name="7" type="Sprite2D" parent="4"]
+modulate = Color(0.945098, 1, 0.509804, 1)
+position = Vector2(-56, -96)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("21_nrvig")
+
+[node name="8" type="Sprite2D" parent="4"]
+modulate = Color(0.945098, 1, 0.509804, 1)
+position = Vector2(-48, -40)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("22_8aagd")
+
+[node name="9" type="Sprite2D" parent="4"]
+modulate = Color(0.945098, 1, 0.509804, 1)
+position = Vector2(40, -88)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("23_0de46")
+
+[node name="10" type="Sprite2D" parent="4"]
+modulate = Color(0.945098, 1, 0.509804, 1)
+position = Vector2(-5, -128)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("24_idwnx")
+
+[node name="11" type="Sprite2D" parent="4"]
+modulate = Color(0.945098, 1, 0.509804, 1)
+position = Vector2(96, -80)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("25_qo0wx")
+
+[node name="12" type="Sprite2D" parent="4"]
+modulate = Color(0.945098, 1, 0.509804, 1)
+position = Vector2(8, -12)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("26_hrdkq")
+
+[node name="13" type="Sprite2D" parent="4"]
+modulate = Color(0.945098, 1, 0.509804, 1)
+position = Vector2(-72, -64)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("27_0x6d7")
+
+[node name="5" type="Node2D" parent="."]
+
+[node name="Base" type="Sprite2D" parent="5"]
+texture = ExtResource("28_td720")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="5"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(0, -8)
+process_material = SubResource("ParticleProcessMaterial_k1v5g")
+texture = SubResource("GradientTexture2D_ckk7k")
+lifetime = 3.0

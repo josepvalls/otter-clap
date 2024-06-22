@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bennn2h3nl0fe"]
+
+[ext_resource type="Script" path="res://scenes/protagonist2.gd" id="1_4ctot"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wmf0u"]
+radius = 8.0
+
+[node name="protagonist" type="Node2D"]
+script = ExtResource("1_4ctot")
+
+[node name="protagonist2" type="Polygon2D" parent="."]
+position = Vector2(306, -53)
+scale = Vector2(0.1, 0.1)
+color = Color(0, 0.819608, 0, 1)
+polygon = PackedVector2Array(-3170, 470, -3140, 540, -3070, 580, -2990, 560, -2920, 460, -3020, 490, -3080, 500)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_wmf0u")

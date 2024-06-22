@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d4kqmqpvmdpri"
+path="res://.godot/imported/Otterclap_SD_Treasure-Core retrieved.wav-2dc9ea995686b2ffe0d9245bbf12b404.sample"
+
+[deps]
+
+source_file="res://sound/Otterclap_SD_Treasure-Core retrieved.wav"
+dest_files=["res://.godot/imported/Otterclap_SD_Treasure-Core retrieved.wav-2dc9ea995686b2ffe0d9245bbf12b404.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

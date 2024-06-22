@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://tciel5fde53j"
+path="res://.godot/imported/Otterclap_SD_Hero Injured.wav-f28b622e541eebdbfe183014938e1be6.sample"
+
+[deps]
+
+source_file="res://sound/Otterclap_SD_Hero Injured.wav"
+dest_files=["res://.godot/imported/Otterclap_SD_Hero Injured.wav-f28b622e541eebdbfe183014938e1be6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

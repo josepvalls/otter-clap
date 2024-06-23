@@ -4,15 +4,6 @@ class_name MyIsometricMap
 var map_reference = {}
 var tween: Tween
 var tween2: Tween
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 
 @export var tiles: Array[PackedScene]
 
@@ -68,8 +59,8 @@ func hide_hint():
 	blue_tween = create_tween()
 	blue_tween.tween_property($ysorter/blue, "scale", Vector2.ONE, 0.3)
 	blue_tween.play()
-	$ysorter/blue/hint.emitting = false
-	$ysorter/blue/hint.hide()
+	no_emit()
+	#$ysorter/blue/hint.hide()
 	#$ysorter/blue/blue.show()
 	
 func show_hint():
@@ -78,7 +69,14 @@ func show_hint():
 	blue_tween = create_tween()
 	blue_tween.tween_property($ysorter/blue, "scale", Vector2(0.01, 0.01), 0.3)
 	blue_tween.play()
-	$ysorter/blue/hint.emitting = true
-	$ysorter/blue/hint.show()
+	emit()
+	#$ysorter/blue/hint.show()
 	#$ysorter/blue/blue.hide()
+	
+func no_emit():
+	$ysorter/hint.emitting = false
+	
+func emit():
+	$ysorter/hint.emitting = true
+	
 	

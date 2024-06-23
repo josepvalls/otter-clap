@@ -4,11 +4,27 @@ class_name MyTileMap
 var start = Vector2i(-1,-1)
 var end = Vector2i(31,21)
 
-func get_random_empty_tile():
+func get_random_empty_tile_():
 	while true:
 		var coords = Vector2i(randi()%end.x, randi()%end.y)
 		if get_tile_kind_at(coords)==0:
 			return coords
+
+
+func get_random_empty_tile(tiles_to_avoid, center_coord, radius=4):
+	var tiles = []
+	for x in radius*2:
+		for y in radius*2:
+			var coords = center_coord + Vector2i(x-radius, y-radius)
+			if coords == center_coord:
+				continue
+			if get_tile_kind_at(coords)==0:
+				tiles.append(coords)
+	if tiles.size()>0:
+		tiles.shuffle()
+		return tiles[0]
+	else:
+		return null
 
 
 

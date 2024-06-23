@@ -6,12 +6,8 @@ func _ready():
 	area_entered.connect(escape)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
-
-func escape(area_or_body):
+func escape(_area_or_body):
 	if randf() < 0.5:
 		$"../antagonist/NavigationAgent2D".target_position = $"../exit1".global_position
 	else:

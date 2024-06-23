@@ -1,4 +1,5 @@
 extends Node2D
+class_name ProtagonistLogic
 
 var alive = true
 var enabled = true
@@ -25,7 +26,7 @@ func check_tile(direction):
 		# only go to paths
 		return tilemap.get_tile_kind_at(coords+direction) == 0
 
-func _process(delta):
+func _process(_delta):
 	if not alive or not enabled:
 		return
 	if tween!=null and tween.is_running():

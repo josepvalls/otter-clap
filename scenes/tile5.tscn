@@ -1,7 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://ct06k85g5hd4u"]
+[gd_scene load_steps=12 format=3 uid="uid://ct06k85g5hd4u"]
 
 [ext_resource type="Script" path="res://scenes/tiles.gd" id="1_lyw0h"]
 [ext_resource type="Texture2D" uid="uid://c2tv3fav2q82q" path="res://sprites/Base/Base-1.png" id="2_b0ulg"]
+[ext_resource type="Texture2D" uid="uid://c8tirxhuwfv1y" path="res://sprites/Plants/8.png" id="3_43xng"]
+[ext_resource type="Texture2D" uid="uid://cfapwrk43yb3s" path="res://sprites/Plants/9.png" id="4_s5jhn"]
 
 [sub_resource type="Curve" id="Curve_qsudy"]
 _data = [Vector2(0, 0), 0.0, 6.91573, 0, 0, Vector2(0.324324, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -47,8 +49,34 @@ fill_to = Vector2(1, 0.5)
 script = ExtResource("1_lyw0h")
 
 [node name="Base" type="Sprite2D" parent="."]
-modulate = Color(0.681694, 0.576586, 0.741669, 1)
+modulate = Color(1, 1, 1, 0.784314)
 texture = ExtResource("2_b0ulg")
+
+[node name="12" type="Sprite2D" parent="."]
+modulate = Color(0.682353, 0.576471, 0.741176, 1)
+position = Vector2(-80, -32)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_43xng")
+flip_h = true
+
+[node name="13" type="Sprite2D" parent="."]
+modulate = Color(0.682353, 0.576471, 0.741176, 1)
+position = Vector2(-16, -72)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_s5jhn")
+
+[node name="14" type="Sprite2D" parent="."]
+modulate = Color(0.682353, 0.576471, 0.741176, 1)
+position = Vector2(46.4, -12.3)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_43xng")
+
+[node name="15" type="Sprite2D" parent="."]
+modulate = Color(0.682353, 0.576471, 0.741176, 1)
+position = Vector2(8, 15)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_s5jhn")
+flip_h = true
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 modulate = Color(1, 1, 1, 0.501961)

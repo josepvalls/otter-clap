@@ -24,45 +24,45 @@ position = Vector2(960, 0)
 scale = Vector2(0.75, 0.75)
 
 [node name="map_test" parent="." instance=ExtResource("3_bcywv")]
-position = Vector2(-104, -645)
+position = Vector2(-96, -688)
 
 [node name="essence" type="Label" parent="."]
-offset_left = 64.0
-offset_top = 64.0
-offset_right = 768.0
-offset_bottom = 1541.0
-theme_override_colors/font_color = Color(0.109804, 0.0784314, 0.054902, 1)
-theme_override_colors/font_outline_color = Color(0.380392, 0.34902, 0.313726, 1)
-theme_override_constants/outline_size = 3
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 736.0
+offset_bottom = 1509.0
+theme_override_colors/font_color = Color(0.603922, 0.564706, 0.521569, 1)
+theme_override_colors/font_outline_color = Color(0.113725, 0.101961, 0.0862745, 1)
+theme_override_constants/outline_size = 6
 theme_override_fonts/font = ExtResource("4_u7gqd")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 30
 text = "Stolen essence: 0"
 autowrap_mode = 2
 
 [node name="antagonists" type="Label" parent="."]
-offset_left = 1152.0
-offset_top = 64.0
-offset_right = 1856.0
-offset_bottom = 1541.0
-theme_override_colors/font_color = Color(0.109804, 0.0784314, 0.054902, 1)
-theme_override_colors/font_outline_color = Color(0.380392, 0.34902, 0.313726, 1)
-theme_override_constants/outline_size = 3
+offset_left = 1184.0
+offset_top = 32.0
+offset_right = 1888.0
+offset_bottom = 1509.0
+theme_override_colors/font_color = Color(0.603922, 0.564706, 0.521569, 1)
+theme_override_colors/font_outline_color = Color(0.113725, 0.101961, 0.0862745, 1)
+theme_override_constants/outline_size = 6
 theme_override_fonts/font = ExtResource("4_u7gqd")
-theme_override_font_sizes/font_size = 60
-text = "Antagonists neutralized: 0"
+theme_override_font_sizes/font_size = 30
+text = "Humans neutralized: 0"
 horizontal_alignment = 2
 autowrap_mode = 2
 
 [node name="warning" type="Label" parent="."]
-offset_left = 1152.0
-offset_top = 64.0
-offset_right = 1856.0
-offset_bottom = 1541.0
-theme_override_colors/font_color = Color(0.109804, 0.0784314, 0.054902, 1)
-theme_override_colors/font_outline_color = Color(0.380392, 0.34902, 0.313726, 1)
-theme_override_constants/outline_size = 3
+offset_left = 1184.0
+offset_top = 32.0
+offset_right = 1888.0
+offset_bottom = 1509.0
+theme_override_colors/font_color = Color(0.603922, 0.564706, 0.521569, 1)
+theme_override_colors/font_outline_color = Color(0.113725, 0.101961, 0.0862745, 1)
+theme_override_constants/outline_size = 6
 theme_override_fonts/font = ExtResource("4_u7gqd")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 30
 text = "
 
 Warning, one antagonist cannot find its way in the forest, you must open a path or neutralize it with a trap as soon as possible, otherwise, they will open their own path and destroy your forest."
@@ -75,3 +75,5 @@ volume_db = -5.0
 autoplay = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]

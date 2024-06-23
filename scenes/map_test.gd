@@ -26,29 +26,32 @@ class MyAntagonist:
 
 var antagonists = []
 
-@onready var level: MyIsometricMap = $view/SubViewport/isometric_test2
-@onready var map: MyTileMap = $map_test/map/NavigationRegion2D/TileMap
-@onready var region: NavigationRegion2D = $map_test/map/NavigationRegion2D
+@onready var level: MyIsometricMap = $view/SubViewport/isometric_test2 as MyIsometricMap
+@onready var map: MyTileMap = $map_test/map/NavigationRegion2D/TileMap as MyTileMap
 var antagonist_path_failures = 0
 var stolen = 0
 var neutralized = 0
 var default_paths_to_clear = {}
 var memory = []
-var antagonist_speed = 0.1
-#@onready var snd_environment = [preload("res://sound/Otterclap_SD_Environment Changing.1of3.2.wav"), preload("res://sound/Otterclap_SD_Environment Changing.2of3.2.wav"), preload("res://sound/Otterclap_SD_Environment Changing.3of3.2.wav")]
+var antagonist_speed = 0.3
+@onready var snd_environment_long = [preload("res://sound/Otterclap_SD_Environment Changing.1of3.2.wav"), preload("res://sound/Otterclap_SD_Environment Changing.2of3.2.wav"), preload("res://sound/Otterclap_SD_Environment Changing.3of3.2.wav")]
 @onready var snd_environment = [preload("res://sound/Otterclap_SD_Environment Changing.1of3 (short).wav"), preload("res://sound/Otterclap_SD_Environment Changing.2of3 (short).wav"), preload("res://sound/Otterclap_SD_Environment Changing.3of3 (short).wav")]
 @onready var snd_antagonist = preload("res://sound/Otterclap_SD_Hero Injured.wav")
 @onready var snd_glyph = preload("res://sound/Otterclap_SD_Magic Glyph Create.4.wav")
 @onready var snd_stolen = preload("res://sound/Otterclap_SD_Treasure-Core retrieved.wav")
-@onready var snd: AudioStreamPlayer = $AudioStreamPlayer
-# Called when the node enters the scene tree for the first time.
+@onready var snd: AudioStreamPlayer = $AudioStreamPlayer as AudioStreamPlayer
+@onready var snd2: AudioStreamPlayer = $AudioStreamPlayer as AudioStreamPlayer
+@onready var protagonist_logic: ProtagonistLogic = $map_test/protagonist as ProtagonistLogic
+@onready var protagonist_body = $view/SubViewport/isometric_test2/ysorter/blue as ProtagonistBody
+
+
 func _ready():
 	get_map()
 	$warning.hide()
-	$map_test/protagonist.terrain_altered.connect(terrain_altered)
-	$map_test/protagonist.terrain_possessed.connect(terrain_possessed)
-	$map_test/protagonist.movement.connect(movement)
-	level.move_to_($map_test/protagonist.coords, "blue", null)
+	protagonist_logic.terrain_altered.connect(terrain_altered)
+	protagonist_logic.terrain_possessed.connect(terrain_possessed)
+	protagonist_logic.movement.connect(movement)
+	level.move_to_(protagonist_logic.coords, "blue", null)
 	map.build_graph(goal1)
 	for exit in exits:
 		for coords in map.find_path(exit, goal1)[1]:
@@ -56,14 +59,18 @@ func _ready():
 		default_paths_to_clear.erase(exit)
 	default_paths_to_clear.erase(goal1)
 	add_antagonist()
+	#add_antagonist()
+	#add_antagonist()
 	move_antagonists()
 
 func add_antagonist():
 	var antagonist_body = preload("res://scenes/red.tscn").instantiate()
+	antagonist_body.set_kind(100)
+	antagonist_body.name = "RED"+str(len(antagonists))
 	level.get_node("ysorter").add_child(antagonist_body)
-	antagonists.append(MyAntagonist.new(1, map.end-Vector2i.ONE*2, Vector2i.ZERO, antagonist_body))
-	var protagonist_body = $view/SubViewport/isometric_test2/ysorter/blue as ProtagonistBody
+	antagonists.append(MyAntagonist.new(len(antagonists), map.end-Vector2i.ONE*2, Vector2i.ZERO, antagonist_body))
 	protagonist_body.add_radar_target(antagonist_body)
+	
 
 func add_goal():
 	if more_goals:
@@ -72,15 +79,33 @@ func add_goal():
 		goals.append(goal2)
 		level.update_tile(goal2, 3)
 
+var antagonists_close_to_player: int
 func move_antagonists():
+	# update difficulty
 	if len(antagonists) < neutralized:
 		if len(antagonists)<4:
 			add_antagonist()
 		elif len(antagonists)+len(goals) < neutralized:
 			add_goal()
 			
+			
+	# move people
+	antagonists_close_to_player = 0
 	for antagonist in antagonists:
 		move_antagonist(antagonist)
+	
+	# check if they are too close to the player
+	if protagonist_logic.current_possession:
+		if antagonists_close_to_player>0:
+			protagonist_logic.enabled = false
+			level.no_emit()
+		else:
+			protagonist_logic.enabled = true
+			level.emit()
+	else:
+		protagonist_logic.enabled = true
+		
+		
 	await get_tree().create_timer(antagonist_speed).timeout
 	call_deferred("move_antagonists")
 
@@ -91,13 +116,13 @@ func move_antagonist_conditions(antagonist):
 	var current_tile = map.get_tile_kind_at(antagonist.coords)
 	if current_tile==5:
 		# neutralize the antagonist
-		snd.stop()
-		snd.stream = snd_antagonist
-		snd.play()
+		snd2.stop()
+		snd2.stream = snd_antagonist
+		snd2.play()
 		neutralized +=1
-		$antagonists.text = "Antagonists neutralized: " + str(neutralized)
+		$antagonists.text = "Humans neutralized: " + str(neutralized)
 		if neutralized < stolen:
-			$warning.text = "\n\nWarning, an antagonist fell into a trap, they will remember it, make sure you move it somewhere else when they are not looking."
+			$warning.text = "\n\nA human fell into a trap, they will remember it, make sure you move it somewhere else when they are not looking."
 			$warning.show()
 			memory.append(antagonist.coords)
 			# how many traps do we keep in memory?
@@ -106,11 +131,16 @@ func move_antagonist_conditions(antagonist):
 			print("memory", memory)
 		else:
 			# delete trap
-			terrain_altered(antagonist.coords, 0)
-			$warning.text = "\n\nWarning, sometimes traps will expire, you'll need to find another one you can use."
+			if protagonist_logic.current_possession and protagonist_logic.coords == antagonist.coords:
+				# being possessed
+				protagonist_logic.current_possession = null
+				protagonist_logic.enabled = true
+				terrain_possessed(antagonist.coords, 0)
+			else:
+				# not being possessed
+				terrain_altered(antagonist.coords, 0)
+			$warning.text = "\n\nSometimes traps will expire, you'll need to find another one you can use."
 			$warning.show()
-
-
 		# TODO die animation and delay before spawning next one
 		antagonist.coords = exits[randi()%exits.size()]
 		antagonist.target = goals[randi()%goals.size()]
@@ -118,17 +148,36 @@ func move_antagonist_conditions(antagonist):
 		pathfinding_rebuild()
 	elif current_tile == 3 and antagonist.coords in goals:
 		# got stolen
-		snd.stop()
-		snd.stream = snd_stolen
-		snd.play()
+		snd2.stop()
+		snd2.stream = snd_stolen
+		snd2.play()
 		stolen +=1
 		$essence.text = "Stolen essence: " + str(stolen)
 		if neutralized < stolen*1.25:
-			# create a new trap to help the player
-			var coords = map.get_random_empty_tile()
-			print("creating trap at ", coords)
-			terrain_altered(coords, 5, false)
+			# spawn/create a new trap to help the player
+			var tiles_to_avoid = get_tiles_to_avoid()
+			var coords = map.get_random_empty_tile(tiles_to_avoid, protagonist_logic.coords)
+			if coords:
+				$warning.text = "\n\nEssence was stolen, the forest will help you creating more traps for you to use."
+				$warning.show()
+				print("creating trap at ", coords)
+				terrain_altered(coords, 5, false)
+				#snd.stop()
+				#snd.stream = snd_environment_long[randi()%snd_environment.size()]
+				#snd.play()
+			else:
+				print("cannot create a new trap")
+	
+	if (antagonist.coords - protagonist_logic.coords).length() < 3:
+		antagonists_close_to_player +=1
 
+func get_tiles_to_avoid():
+	var tiles_to_avoid = {}
+	for antagonist in antagonists:
+		tiles_to_avoid[antagonist.coords] = true
+		for coords in antagonist.path:
+			tiles_to_avoid[coords] = true
+	return tiles_to_avoid
 
 func move_antagonist(antagonist: MyAntagonist):
 	move_antagonist_conditions(antagonist)
@@ -145,7 +194,7 @@ func move_antagonist(antagonist: MyAntagonist):
 		if path_data[0]==false:
 			antagonist_path_failures +=1
 			print("path failure ", antagonist_path_failures)
-			$warning.text = "\n\nWarning, an antagonist cannot find its way in the forest, you must open a path or neutralize it with a trap as soon as possible, otherwise, they will open their own path and destroy your forest permanently."
+			$warning.text = "\n\nA human cannot find its way in the forest, you must open a path or neutralize it with a trap as soon as possible, otherwise, they will open their own path and destroy your forest permanently."
 			$warning.show()
 			if antagonist_path_failures >= 4:
 				reset_paths()
@@ -192,13 +241,10 @@ func pathfinding_rebuild():
 		var path_data = map.find_path(antagonist.coords, antagonist.target, memory)
 		antagonist.path = path_data[1]
 
-var is_possessed = false
 func terrain_possessed(coords, kind):
 	if kind == 0:
 		level.hide_hint()
-		is_possessed = false
 	else:
-		is_possessed = true
 		snd.stop()
 		snd.stream = snd_glyph
 		snd.play()
@@ -208,16 +254,10 @@ func movement(from, to, t):
 	level.move_to_(to, "blue", t)
 	level.map_reference[from].modulate = Color(1.0,1.0,1.0,1.0)
 	if map.get_tile_kind_at(to) in [1, 5]:
-		level.map_reference[to].modulate = Color(0.5,0.5,1.0,1.0)
+		
+		level.map_reference[to].modulate = Color(0.5,0.6,0.8,1.0)
 		# it's a tree or a trap
 		
-	
-	
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 	
 
 func _input(event):

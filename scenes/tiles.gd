@@ -33,7 +33,11 @@ func set_kind(kind):
 		make_visible(get_children(), 1, 6)
 		z_index = 0
 	elif kind==5:
+		make_visible(get_children())
+		$"GPUParticles2D".show()
 		$"GPUParticles2D".emitting = true
 	elif kind==6:
 		pass
+	elif kind==100:
+		make_visible(get_children(), 1, 1)
 

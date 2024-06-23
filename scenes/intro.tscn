@@ -151,7 +151,7 @@ position = Vector2(952, 744)
 texture = ExtResource("7_0kavs")
 
 [node name="Label" type="Label" parent="i3"]
-offset_left = 712.0
+offset_left = 872.0
 offset_top = 40.0
 offset_right = 1916.0
 offset_bottom = 2101.0
@@ -160,11 +160,10 @@ theme_override_colors/font_outline_color = Color(0.380392, 0.34902, 0.313726, 1)
 theme_override_constants/outline_size = 6
 theme_override_fonts/font = ExtResource("8_xevi8")
 theme_override_font_sizes/font_size = 80
-text = "Story goes here..."
 autowrap_mode = 2
+justification_flags = 160
 
 [node name="img1" type="Node2D" parent="i3"]
-visible = false
 position = Vector2(-1064, 232)
 scale = Vector2(1.6, 1.6)
 
@@ -472,7 +471,6 @@ texture = SubResource("GradientTexture2D_lfr3n")
 lifetime = 3.0
 
 [node name="i4" type="Node2D" parent="."]
-visible = false
 
 [node name="Intro" type="Sprite2D" parent="i4"]
 position = Vector2(960, 568)
@@ -504,17 +502,38 @@ position = Vector2(960, 568)
 scale = Vector2(1.307, 1.307)
 texture = ExtResource("19_qjc2u")
 
-[node name="menu" type="Node2D" parent="."]
+[node name="title" type="Label" parent="i4"]
+offset_left = 56.0
+offset_top = 80.0
+offset_right = 760.0
+offset_bottom = 1557.0
+theme_override_colors/font_color = Color(0.109804, 0.0784314, 0.054902, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.188235)
+theme_override_colors/font_outline_color = Color(0.380392, 0.34902, 0.313726, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("8_xevi8")
+theme_override_font_sizes/font_size = 150
+text = "Leshachikha"
+horizontal_alignment = 1
+autowrap_mode = 2
 
-[node name="Button" type="Button" parent="menu"]
-visible = false
-offset_left = 1440.0
-offset_top = 368.0
-offset_right = 1760.0
-offset_bottom = 560.0
-text = "Start game"
+[node name="subtitle" type="Label" parent="i4"]
+offset_left = 56.0
+offset_top = 184.0
+offset_right = 760.0
+offset_bottom = 1661.0
+theme_override_colors/font_color = Color(0.109804, 0.0784314, 0.054902, 1)
+theme_override_colors/font_outline_color = Color(0.380392, 0.34902, 0.313726, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("8_xevi8")
+theme_override_font_sizes/font_size = 60
+text = "Protector of the forest"
+horizontal_alignment = 1
+autowrap_mode = 2
 
-[node name="continue" type="Label" parent="menu"]
+[node name="credits" type="Label" parent="i4"]
 offset_left = 1192.0
 offset_top = 64.0
 offset_right = 1896.0
@@ -535,6 +554,30 @@ Leenad
 Score and SFX:
 Bryn Kirsch
 
+"
+horizontal_alignment = 2
+autowrap_mode = 2
+
+[node name="credits2" type="Label" parent="i4"]
+offset_left = 1192.0
+offset_top = 64.0
+offset_right = 1896.0
+offset_bottom = 1541.0
+theme_override_colors/font_color = Color(0.109804, 0.0784314, 0.054902, 1)
+theme_override_colors/font_outline_color = Color(0.380392, 0.34902, 0.313726, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("8_xevi8")
+theme_override_font_sizes/font_size = 60
+text = "
+
+
+
+
+
+
+
+
+
 
 
 Press \"space\" to start"
@@ -550,14 +593,14 @@ offset_bottom = 1080.0
 color = Color(0.0705882, 0.133333, 0.247059, 1)
 
 [node name="continue" type="Label" parent="."]
-offset_top = 1008.0
+offset_top = 1048.0
 offset_right = 1920.0
-offset_bottom = 2557.0
-theme_override_colors/font_color = Color(0.109804, 0.0784314, 0.054902, 1)
-theme_override_colors/font_outline_color = Color(0.380392, 0.34902, 0.313726, 1)
+offset_bottom = 2597.0
+theme_override_colors/font_color = Color(0.152941, 0.345098, 0.545098, 1)
+theme_override_colors/font_outline_color = Color(0.701961, 0.756863, 0.772549, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("8_xevi8")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 30
 text = "Press \"space\" to continue..."
 horizontal_alignment = 1
 autowrap_mode = 2

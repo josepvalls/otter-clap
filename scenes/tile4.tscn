@@ -1,0 +1,75 @@
+[gd_scene load_steps=12 format=3 uid="uid://yyw6jbu0x8ct"]
+
+[ext_resource type="Script" path="res://scenes/tiles.gd" id="1_vrsxj"]
+[ext_resource type="Texture2D" uid="uid://bis84mqbxjn6j" path="res://sprites/Base/Base-3.png" id="2_6sv47"]
+[ext_resource type="Texture2D" uid="uid://c602lgnxok3h6" path="res://sprites/Plants/1.png" id="3_1h5el"]
+[ext_resource type="Texture2D" uid="uid://sr5xn23aldvb" path="res://sprites/Plants/2.png" id="4_31kyk"]
+[ext_resource type="Texture2D" uid="uid://b50ksky8bhois" path="res://sprites/Plants/3.png" id="5_38ua3"]
+[ext_resource type="Texture2D" uid="uid://cv8xe1etygfyg" path="res://sprites/Plants/4.png" id="6_la7k0"]
+[ext_resource type="Texture2D" uid="uid://dbs6fftc4gvsi" path="res://sprites/Plants/5.png" id="7_h08g8"]
+[ext_resource type="Texture2D" uid="uid://ckdv5mgws81kv" path="res://sprites/Plants/6.png" id="8_fi3y7"]
+[ext_resource type="Texture2D" uid="uid://cabn8hxuhi176" path="res://sprites/Plants/7.png" id="9_84ve0"]
+[ext_resource type="Texture2D" uid="uid://c8tirxhuwfv1y" path="res://sprites/Plants/8.png" id="10_76dwa"]
+[ext_resource type="Texture2D" uid="uid://cfapwrk43yb3s" path="res://sprites/Plants/9.png" id="11_rgaab"]
+
+[node name="4" type="Node2D"]
+script = ExtResource("1_vrsxj")
+
+[node name="Base" type="Sprite2D" parent="."]
+modulate = Color(0.945098, 1, 0.509804, 0.784314)
+texture = ExtResource("2_6sv47")
+
+[node name="5" type="Sprite2D" parent="."]
+modulate = Color(0.945098, 1, 0.509804, 1)
+position = Vector2(55.4, -9.35001)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_1h5el")
+flip_h = true
+
+[node name="6" type="Sprite2D" parent="."]
+modulate = Color(0.945098, 1, 0.509804, 1)
+position = Vector2(42.4, 21.65)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_31kyk")
+
+[node name="7" type="Sprite2D" parent="."]
+modulate = Color(0.945098, 1, 0.509804, 1)
+position = Vector2(-61.6, -65.35)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_38ua3")
+
+[node name="8" type="Sprite2D" parent="."]
+modulate = Color(0.945098, 1, 0.509804, 1)
+position = Vector2(-53.6, -9.35001)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_la7k0")
+
+[node name="9" type="Sprite2D" parent="."]
+modulate = Color(0.945098, 1, 0.509804, 1)
+position = Vector2(34.4, -57.35)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("7_h08g8")
+
+[node name="10" type="Sprite2D" parent="."]
+modulate = Color(0.945098, 1, 0.509804, 1)
+position = Vector2(-10.6, -97.35)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("8_fi3y7")
+
+[node name="11" type="Sprite2D" parent="."]
+modulate = Color(0.945098, 1, 0.509804, 1)
+position = Vector2(90.4, -49.35)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("9_84ve0")
+
+[node name="12" type="Sprite2D" parent="."]
+modulate = Color(0.945098, 1, 0.509804, 1)
+position = Vector2(2.4, 18.65)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("10_76dwa")
+
+[node name="13" type="Sprite2D" parent="."]
+modulate = Color(0.945098, 1, 0.509804, 1)
+position = Vector2(-77.6, -33.35)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("11_rgaab")

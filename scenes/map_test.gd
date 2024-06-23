@@ -11,7 +11,11 @@ var tween: Tween
 var stolen = 0
 var neutralized = 0
 var default_paths_to_clear = []
-@onready var snd_environment = [preload("res://sound/Otterclap_SD_Environment Changing.1of3.2.wav"), preload("res://sound/Otterclap_SD_Environment Changing.2of3.2.wav"), preload("res://sound/Otterclap_SD_Environment Changing.3of3.2.wav")]
+var memory = []
+var warning_kind = -1
+var antagonist_speed = 0.3
+#@onready var snd_environment = [preload("res://sound/Otterclap_SD_Environment Changing.1of3.2.wav"), preload("res://sound/Otterclap_SD_Environment Changing.2of3.2.wav"), preload("res://sound/Otterclap_SD_Environment Changing.3of3.2.wav")]
+@onready var snd_environment = [preload("res://sound/Otterclap_SD_Environment Changing.1of3 (short).wav"), preload("res://sound/Otterclap_SD_Environment Changing.2of3 (short).wav"), preload("res://sound/Otterclap_SD_Environment Changing.3of3 (short).wav")]
 @onready var snd_antagonist = preload("res://sound/Otterclap_SD_Hero Injured.wav")
 @onready var snd_glyph = preload("res://sound/Otterclap_SD_Magic Glyph Create.4.wav")
 @onready var snd_stolen = preload("res://sound/Otterclap_SD_Treasure-Core retrieved.wav")
@@ -27,7 +31,7 @@ func _ready():
 	map.build_graph(antagonist.goal)
 	move_antagonist()
 	default_paths_to_clear += map.find_path(antagonist.coords, antagonist.exits[0])[1]
-	default_paths_to_clear += map.find_path(antagonist.coords, antagonist.exits[1])[1]
+	#default_paths_to_clear += map.find_path(antagonist.coords, antagonist.exits[1])[1]
 	
 func move_antagonist():
 	# where is the antagonist?
@@ -40,11 +44,20 @@ func move_antagonist():
 		snd.play()
 		neutralized +=1
 		$antagonists.text = "Antagonists neutralized: " + str(neutralized)
+		$warning.text = "\n\nWarning, an antagonist fell into a trap, they will remember it, make sure you move it somewhere else when they are not looking."
+		$warning.show()
+		warning_kind = 2
+		memory.append(antagonist.coords)
+		# how many traps do we keep in memory?
+		if len(memory) > 8:
+			memory.pop_front()
+
 		# TODO die animation and delay before spawning next one
 		var spanw_location = antagonist.exits[randi()%antagonist.exits.size()]
 		antagonist.coords = spanw_location
 		antagonist.path = []
 	elif current_tile == 3 and antagonist.coords == antagonist.goal:
+		$warning.hide()
 		# got stolen
 		snd.stop()
 		snd.stream = snd_stolen
@@ -57,17 +70,20 @@ func move_antagonist():
 			antagonist.target = antagonist.goal
 		else:
 			antagonist.target = antagonist.exits[randi()%antagonist.exits.size()]
-		var path_data = map.find_path(antagonist.coords, antagonist.target)
+		var path_data = map.find_path(antagonist.coords, antagonist.target, memory)
 		antagonist.path = path_data[1]
 		print("antagonist target", antagonist.target, path_data)
 		if path_data[0]==false:
 			antagonist_path_failures +=1
 			print("path failure ", antagonist_path_failures)
+			$warning.text = "\n\nWarning, an antagonist cannot find its way in the forest, you must open a path or neutralize it with a trap as soon as possible, otherwise, they will open their own path and destroy your forest permanently."
 			$warning.show()
+			warning_kind = 1
 			if antagonist_path_failures >= 3:
 				reset_paths()
 		else:
-			$warning.hide()
+			if warning_kind==1:
+				$warning.hide()
 					
 	if antagonist.path:
 		if tween:
@@ -75,7 +91,7 @@ func move_antagonist():
 		tween = create_tween()
 		antagonist.coords = antagonist.path.pop_front()
 		var antagonist_sprite = level.get_node("ysorter/red")
-		tween.tween_property(antagonist_sprite, "position", level.map_reference[antagonist.coords].position, 0.3)
+		tween.tween_property(antagonist_sprite, "position", level.map_reference[antagonist.coords].position, antagonist_speed)
 		tween.tween_callback(move_antagonist)
 
 func reset_paths():
@@ -136,9 +152,11 @@ func _process(delta):
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
-			$view/SubViewport/isometric_test2.scale *= 1.1
+			var scaled = clamp($view/SubViewport/isometric_test2.scale.x*1.1, 0.4, 1.0)
+			$view/SubViewport/isometric_test2.scale = Vector2(scaled, scaled)
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-			$view/SubViewport/isometric_test2.scale *= 0.9
+			var scaled = clamp($view/SubViewport/isometric_test2.scale.x*0.9, 0.4, 1.0)
+			$view/SubViewport/isometric_test2.scale = Vector2(scaled, scaled)
 
 
 func get_map():

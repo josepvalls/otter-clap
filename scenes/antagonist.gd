@@ -1,8 +1,9 @@
 extends Node2D
 class_name Antagonist
 
-var exits = [Vector2i(30,14), Vector2i(30,5)]
-var coords = Vector2i(30,14)
+var exits = [Vector2i(30,14), Vector2i(30,5), Vector2i(23,-1), Vector2i(23,20)]
+#var exits = [Vector2i(30,14)]#, Vector2i(30,5), Vector2i(23,-1), Vector2i(23,20)]
+@export var coords = Vector2i(30,14)
 var goal = Vector2i(5,8)
 var target = Vector2i.ZERO
 @export var map: MyTileMap

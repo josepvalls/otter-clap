@@ -68,9 +68,12 @@ func find_path_recreate(coords, node):
 	return path
 	
 
-func find_path(from, to):
+func find_path(from, to, memory=null):
 	var queue = [MyNode.new(from, null, 1)]
 	var visited = {from:true}
+	if memory:
+		for coords in memory:
+			visited[coords] = false
 	var current_path = null
 	while queue:
 		var node = queue.pop_front()

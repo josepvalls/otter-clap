@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://swk67n8x6nwy" path="res://sprites/intro/70-Folklore.png" id="3_vditw"]
 [ext_resource type="Texture2D" uid="uid://dte3xv2yjj8qf" path="res://sprites/intro/consequences.png" id="4_msw6t"]
 [ext_resource type="Texture2D" uid="uid://cl3x0mbw30g4y" path="res://sprites/intro/takeover.png" id="5_2tfp0"]
-[ext_resource type="Texture2D" uid="uid://paooyl7brd5h" path="res://sprites/intro/intro.png" id="6_ljuv8"]
 [ext_resource type="Texture2D" uid="uid://dlkm33fpw0eeo" path="res://sprites/paper.png" id="7_0kavs"]
 [ext_resource type="Texture2D" uid="uid://bis84mqbxjn6j" path="res://sprites/Base/Base-3.png" id="8_fj5eb"]
 [ext_resource type="FontFile" uid="uid://bgb1ygnv2vrjd" path="res://fonts/Rosharp.ttf" id="8_xevi8"]
@@ -18,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bpwmsfj5u1q71" path="res://sprites/blob.png" id="15_bp41x"]
 [ext_resource type="Texture2D" uid="uid://0q8agf4gnpct" path="res://sprites/red.png" id="16_v8ppc"]
 [ext_resource type="Texture2D" uid="uid://c2tv3fav2q82q" path="res://sprites/Base/Base-1.png" id="17_3wcee"]
+[ext_resource type="Texture2D" uid="uid://h03idy5m516d" path="res://sprites/intro/intro-tinted.png" id="18_nclm8"]
 
 [sub_resource type="Curve" id="Curve_eley7"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -454,7 +454,7 @@ lifetime = 3.0
 [node name="Intro" type="Sprite2D" parent="i4"]
 position = Vector2(960.368, 568)
 scale = Vector2(1.30672, 1.30672)
-texture = ExtResource("6_ljuv8")
+texture = ExtResource("18_nclm8")
 
 [node name="menu" type="Node2D" parent="."]
 
@@ -467,9 +467,9 @@ offset_bottom = 560.0
 text = "Start game"
 
 [node name="continue" type="Label" parent="menu"]
-offset_left = 64.0
+offset_left = 1192.0
 offset_top = 64.0
-offset_right = 768.0
+offset_right = 1896.0
 offset_bottom = 1541.0
 theme_override_colors/font_color = Color(0.109804, 0.0784314, 0.054902, 1)
 theme_override_colors/font_outline_color = Color(0.380392, 0.34902, 0.313726, 1)
@@ -490,6 +490,7 @@ Bryn Kirsch
 
 
 Press \"space\" to start"
+horizontal_alignment = 2
 autowrap_mode = 2
 
 [node name="fadeout" type="Node2D" parent="."]

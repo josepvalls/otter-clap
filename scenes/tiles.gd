@@ -1,55 +1,36 @@
 extends Node2D
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
+func make_visible(q: Array, s=1, n=3):
+	for idx in q.size()-s:
+		q[idx+s].visible = false
+	for i in n:
+		var idx = randi()%(q.size() - s)
+		q[idx+s].visible = true
+		q.remove_at(idx+s)
 
 func set_kind(kind):
-	$"0".hide()
-	$"1".hide()
-	$"2".hide()
-	$"3".hide()
-	$"4".hide()
-	$"5".hide()
-	$"3/GPUParticles2D".emitting = false
-	$"5/GPUParticles2D".emitting = false
 	if kind==0:
-		$"0".show()
-		for child in $"0".get_children():
+		# paths
+		for child in get_children():
 			child.visible = false
-		$"0".get_children()[randi()%$"0".get_child_count()].visible=true
+		get_children()[randi()%get_child_count()].visible=true
 		z_index = -1
 	elif kind==1:
-		$"1".show()
-		for child in $"1".get_children():
-			if child.name == "Base":
-				continue
-			child.visible = bool(randf()<0.3)
+		# trees
+		make_visible(get_children())
 		z_index = 0
 	elif kind==2:
-		$"2".show()
-		for child in $"2".get_children():
+		# walls
+		for child in get_children():
 			child.visible = false
-		$"2".get_children()[randi()%$"2".get_child_count()].visible=true
+		get_children()[randi()%get_child_count()].visible=true
 		z_index = 0
 	elif kind==3:
-		$"3".show()
-		$"3/GPUParticles2D".emitting = true
+		$"GPUParticles2D".emitting = true
 	elif kind==4:
-		$"4".show()
-		for child in $"4".get_children():
-			if child.name == "Base":
-				continue
-			child.visible = bool(randf()<0.5)
+		# grass
+		make_visible(get_children(), 1, 6)
 		z_index = 0
 	elif kind==5:
-		$"5".show()
-		$"5/GPUParticles2D".emitting = true
+		$"GPUParticles2D".emitting = true
 

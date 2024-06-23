@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpigbnmp3gb8g"]
+
+[ext_resource type="Script" path="res://scenes/tiles.gd" id="1_70op5"]
+[ext_resource type="Texture2D" uid="uid://bd0xpljl2yw20" path="res://sprites/Base/Base-5.png" id="2_yxdnj"]
+[ext_resource type="Texture2D" uid="uid://bis84mqbxjn6j" path="res://sprites/Base/Base-3.png" id="3_7xbex"]
+
+[node name="0" type="Node2D"]
+modulate = Color(1, 1, 1, 0.894118)
+script = ExtResource("1_70op5")
+
+[node name="Base-5" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.784314)
+texture = ExtResource("2_yxdnj")
+
+[node name="Base-3" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.784314)
+texture = ExtResource("3_7xbex")

@@ -26,6 +26,7 @@ func set_kind(kind):
 		get_children()[randi()%get_child_count()].visible=true
 		z_index = 0
 	elif kind==3:
+		# goal
 		$"GPUParticles2D".emitting = true
 	elif kind==4:
 		# grass
@@ -33,4 +34,6 @@ func set_kind(kind):
 		z_index = 0
 	elif kind==5:
 		$"GPUParticles2D".emitting = true
+	elif kind==6:
+		pass
 

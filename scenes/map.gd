@@ -4,6 +4,14 @@ class_name MyTileMap
 var start = Vector2i(-1,-1)
 var end = Vector2i(31,21)
 
+func get_random_empty_tile():
+	while true:
+		var coords = Vector2i(randi()%end.x, randi()%end.y)
+		if get_tile_kind_at(coords)==0:
+			return coords
+
+
+
 func get_tile_kind_at(coords):
 	# kind legend:
 	# 0 = empty paths
@@ -12,6 +20,7 @@ func get_tile_kind_at(coords):
 	# 3 = treasure
 	# 4 = immovable trees/walls
 	# 5 = trap
+	# 6 = enemy home
 	var td: TileData = get_cell_tile_data(0, coords)
 	var kind = 0
 	if td:
@@ -25,12 +34,17 @@ func get_tile_kind_at(coords):
 			kind=3
 		elif td.terrain==6: # this a trap
 			kind=5
+		elif td.terrain==7: # this a trap
+			kind=6
 		else: # [0, 4]: # 4 is not movable
 			# regular blocks
 			kind=1
+	else:
+		return -1
 	return kind
 
 var graph = {}
+
 class MyTile:
 	var kind: int = 0
 	var edges: Array = []
@@ -80,7 +94,7 @@ func find_path(from, to, memory=null):
 		if current_path==null or current_path.length < node.length:
 			current_path = node
 		for edge in graph[node.coords].edges:
-			if not edge in graph or graph[edge].kind in [0, 4, 3, 5]: # 5 makes them walk on traps
+			if not edge in graph or graph[edge].kind in [0, 4, 3, 5, 6]: # 5 makes them walk on traps
 				pass
 			else:
 				# not passable

@@ -1,0 +1,94 @@
+[gd_scene load_steps=15 format=3 uid="uid://bbof42xxw77fm"]
+
+[ext_resource type="Script" path="res://scenes/tiles.gd" id="1_qc0hq"]
+[ext_resource type="Texture2D" uid="uid://bis84mqbxjn6j" path="res://sprites/Base/Base-3.png" id="2_0qxvw"]
+[ext_resource type="Texture2D" uid="uid://dn31xk2c3akw6" path="res://sprites/Trees/1.png" id="3_ixb46"]
+[ext_resource type="Texture2D" uid="uid://rnq6lavom5j" path="res://sprites/Trees/3.png" id="4_q2ave"]
+[ext_resource type="Texture2D" uid="uid://ysg48vcv5dvb" path="res://sprites/Trees/4.png" id="5_niwst"]
+[ext_resource type="Texture2D" uid="uid://daam535qh33t" path="res://sprites/Trees/5.png" id="6_1i3rw"]
+[ext_resource type="Texture2D" uid="uid://s370rlr8bs0c" path="res://sprites/Trees/6.png" id="7_bcbd6"]
+[ext_resource type="Texture2D" uid="uid://cdfwcn84n06g5" path="res://sprites/Trees/7.png" id="8_1enj3"]
+[ext_resource type="Texture2D" uid="uid://cyowmis1ny2tl" path="res://sprites/Stumps/6.png" id="9_n5qym"]
+[ext_resource type="Texture2D" uid="uid://dpeg7xj50fcex" path="res://sprites/Stumps/1.png" id="10_oymmj"]
+[ext_resource type="Texture2D" uid="uid://b11mkcxo4gnyf" path="res://sprites/Stumps/5.png" id="11_o2ppp"]
+[ext_resource type="Texture2D" uid="uid://cwr4wpgb8ycyh" path="res://sprites/2.png" id="12_67usy"]
+[ext_resource type="Texture2D" uid="uid://b4up1s8bs8rp1" path="res://sprites/8.png" id="13_i3tgd"]
+[ext_resource type="Texture2D" uid="uid://dp6tp1iocx5jl" path="res://sprites/9.png" id="14_8lpmf"]
+
+[node name="1" type="Node2D"]
+script = ExtResource("1_qc0hq")
+
+[node name="Base" type="Sprite2D" parent="."]
+texture = ExtResource("2_0qxvw")
+
+[node name="4" type="Sprite2D" parent="."]
+modulate = Color(1, 0.666667, 0.411765, 1)
+position = Vector2(-26, -136)
+texture = ExtResource("3_ixb46")
+
+[node name="11" type="Sprite2D" parent="."]
+modulate = Color(1, 0.666667, 0.411765, 1)
+position = Vector2(32, -104)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_q2ave")
+
+[node name="12" type="Sprite2D" parent="."]
+modulate = Color(1, 0.666667, 0.411765, 1)
+position = Vector2(29, -168)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_niwst")
+
+[node name="13" type="Sprite2D" parent="."]
+modulate = Color(1, 0.666667, 0.411765, 1)
+position = Vector2(85, -112)
+texture = ExtResource("6_1i3rw")
+
+[node name="14" type="Sprite2D" parent="."]
+modulate = Color(1, 0.666667, 0.411765, 1)
+position = Vector2(-48, -168)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("7_bcbd6")
+
+[node name="15" type="Sprite2D" parent="."]
+modulate = Color(1, 0.666667, 0.411765, 1)
+position = Vector2(-64, -144)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("8_1enj3")
+
+[node name="6" type="Sprite2D" parent="."]
+modulate = Color(1, 0.666667, 0.411765, 1)
+position = Vector2(-16, -104)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("9_n5qym")
+
+[node name="7" type="Sprite2D" parent="."]
+modulate = Color(1, 0.666667, 0.411765, 1)
+position = Vector2(-4.99998, -32)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("10_oymmj")
+
+[node name="5" type="Sprite2D" parent="."]
+modulate = Color(1, 0.666667, 0.411765, 1)
+position = Vector2(72, -128)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("11_o2ppp")
+flip_h = true
+
+[node name="9" type="Sprite2D" parent="."]
+modulate = Color(1, 0.666667, 0.411765, 1)
+position = Vector2(-99, -156)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("12_67usy")
+
+[node name="8" type="Sprite2D" parent="."]
+modulate = Color(1, 0.666667, 0.411765, 1)
+position = Vector2(3, -179)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("13_i3tgd")
+
+[node name="10" type="Sprite2D" parent="."]
+modulate = Color(1, 0.666667, 0.411765, 1)
+position = Vector2(64, -72)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("14_8lpmf")
+flip_h = true

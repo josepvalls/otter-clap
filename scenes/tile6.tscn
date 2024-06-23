@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://id2i6y7mgkp6"]
+
+[ext_resource type="Script" path="res://scenes/tiles.gd" id="1_3myjy"]
+[ext_resource type="Texture2D" uid="uid://bkqorrj4af141" path="res://sprites/Base/Base-4.png" id="2_c3t1n"]
+
+[node name="6" type="Node2D"]
+modulate = Color(1, 1, 1, 0.894118)
+script = ExtResource("1_3myjy")
+
+[node name="Base-4" type="Sprite2D" parent="."]
+texture = ExtResource("2_c3t1n")

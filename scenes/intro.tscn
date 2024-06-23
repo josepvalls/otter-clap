@@ -1,10 +1,11 @@
-[gd_scene load_steps=31 format=3 uid="uid://bi2s8xpyec0ds"]
+[gd_scene load_steps=37 format=3 uid="uid://bi2s8xpyec0ds"]
 
 [ext_resource type="Script" path="res://intro.gd" id="1_yox5o"]
 [ext_resource type="Texture2D" uid="uid://b88oarnemk0fe" path="res://sprites/intro/Wildling-Wallpaper 1080.png" id="2_jyfay"]
 [ext_resource type="Texture2D" uid="uid://swk67n8x6nwy" path="res://sprites/intro/70-Folklore.png" id="3_vditw"]
 [ext_resource type="Texture2D" uid="uid://dte3xv2yjj8qf" path="res://sprites/intro/consequences.png" id="4_msw6t"]
 [ext_resource type="Texture2D" uid="uid://cl3x0mbw30g4y" path="res://sprites/intro/takeover.png" id="5_2tfp0"]
+[ext_resource type="Texture2D" uid="uid://paooyl7brd5h" path="res://sprites/intro/intro.png" id="6_ljuv8"]
 [ext_resource type="Texture2D" uid="uid://dlkm33fpw0eeo" path="res://sprites/paper.png" id="7_0kavs"]
 [ext_resource type="Texture2D" uid="uid://bis84mqbxjn6j" path="res://sprites/Base/Base-3.png" id="8_fj5eb"]
 [ext_resource type="FontFile" uid="uid://bgb1ygnv2vrjd" path="res://fonts/Rosharp.ttf" id="8_xevi8"]
@@ -17,7 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://bpwmsfj5u1q71" path="res://sprites/blob.png" id="15_bp41x"]
 [ext_resource type="Texture2D" uid="uid://0q8agf4gnpct" path="res://sprites/red.png" id="16_v8ppc"]
 [ext_resource type="Texture2D" uid="uid://c2tv3fav2q82q" path="res://sprites/Base/Base-1.png" id="17_3wcee"]
-[ext_resource type="Texture2D" uid="uid://h03idy5m516d" path="res://sprites/intro/intro-tinted.png" id="18_nclm8"]
+[ext_resource type="Texture2D" uid="uid://l5nehidu0bms" path="res://sprites/intro/intro-tinted-transparent.png" id="19_qjc2u"]
+[ext_resource type="AudioStream" uid="uid://bqraxypl6yki0" path="res://sound/Otterclap.Tutorial Music.mp3" id="20_d6onh"]
 
 [sub_resource type="Curve" id="Curve_eley7"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -47,21 +49,21 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
-[sub_resource type="Curve" id="Curve_bx2gf"]
-_data = [Vector2(0, 0), 0.0, 6.91573, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
+[sub_resource type="Curve" id="Curve_hf108"]
+_data = [Vector2(0, 0), 0.0, 6.91573, 0, 0, Vector2(0.324324, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_4077h"]
-curve = SubResource("Curve_bx2gf")
+[sub_resource type="CurveTexture" id="CurveTexture_hvnmj"]
+curve = SubResource("Curve_hf108")
 
-[sub_resource type="Curve" id="Curve_t4bvn"]
+[sub_resource type="Curve" id="Curve_8ilv6"]
 _data = [Vector2(0.012285, 0.128866), 0.0, 0.0, 0, 0, Vector2(0.162162, 0.427367), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_7nc51"]
-curve = SubResource("Curve_t4bvn")
+[sub_resource type="CurveTexture" id="CurveTexture_uiga2"]
+curve = SubResource("Curve_8ilv6")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_722i1"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0lxm2"]
 particle_flag_disable_z = true
 emission_shape = 1
 emission_sphere_radius = 67.06
@@ -72,21 +74,39 @@ initial_velocity_max = 20.0
 gravity = Vector3(0, 0, 0)
 scale_min = 1.5
 scale_max = 2.0
-scale_curve = SubResource("CurveTexture_7nc51")
-alpha_curve = SubResource("CurveTexture_4077h")
-hue_variation_min = -0.34
-hue_variation_max = -0.21
+scale_curve = SubResource("CurveTexture_uiga2")
+alpha_curve = SubResource("CurveTexture_hvnmj")
 
-[sub_resource type="Gradient" id="Gradient_j7hs3"]
-colors = PackedColorArray(1, 1, 0, 1, 1, 1, 0, 0)
+[sub_resource type="Gradient" id="Gradient_b5ope"]
+offsets = PackedFloat32Array(0.725061, 1)
+colors = PackedColorArray(0.843137, 0, 0.929412, 1, 0, 0, 0, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_py3og"]
-gradient = SubResource("Gradient_j7hs3")
-width = 128
-height = 128
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lfr3n"]
+gradient = SubResource("Gradient_b5ope")
+width = 32
+height = 32
 fill = 1
-fill_from = Vector2(0.5, 0.5)
+fill_from = Vector2(0.482906, 0.5)
 fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_eadna"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kfimx"]
+gradient = SubResource("Gradient_eadna")
+width = 512
+height = 512
+fill = 1
+fill_from = Vector2(0.534188, 0.529915)
+fill_to = Vector2(1, 0.504274)
+
+[sub_resource type="Curve" id="Curve_t7xib"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.216092, 1), 0.0285645, 0.0285645, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_unrqy"]
+offsets = PackedFloat32Array(0, 0.0982801, 1)
+colors = PackedColorArray(1, 1, 1, 0, 0.137255, 0.8, 1, 1, 1, 1, 1, 0)
 
 [node name="intro" type="Node2D"]
 script = ExtResource("1_yox5o")
@@ -437,24 +457,52 @@ position = Vector2(935.736, 431.994)
 texture = ExtResource("17_3wcee")
 
 [node name="red" type="Sprite2D" parent="i3/img3/5"]
-position = Vector2(0.755234, 15.1047)
+position = Vector2(54.264, -21.994)
 rotation = 1.5708
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("16_v8ppc")
 offset = Vector2(-220, 0)
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="i3/img3/5"]
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="i3/img3/5"]
+modulate = Color(1, 1, 1, 0.501961)
 position = Vector2(0, -8)
-process_material = SubResource("ParticleProcessMaterial_722i1")
-texture = SubResource("GradientTexture2D_py3og")
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_0lxm2")
+texture = SubResource("GradientTexture2D_lfr3n")
 lifetime = 3.0
 
 [node name="i4" type="Node2D" parent="."]
+visible = false
 
 [node name="Intro" type="Sprite2D" parent="i4"]
-position = Vector2(960.368, 568)
+position = Vector2(960, 568)
 scale = Vector2(1.30672, 1.30672)
-texture = ExtResource("18_nclm8")
+texture = ExtResource("6_ljuv8")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="i4"]
+position = Vector2(832, 672)
+lifetime = 10.0
+explosiveness = 0.2
+lifetime_randomness = 0.15
+texture = SubResource("GradientTexture2D_kfimx")
+emission_shape = 1
+emission_sphere_radius = 128.0
+direction = Vector2(-1, -0.2)
+spread = 90.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 100.0
+angle_min = -360.0
+angle_max = 360.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_t7xib")
+color = Color(0.00784314, 0.768627, 0.996078, 1)
+color_ramp = SubResource("Gradient_unrqy")
+
+[node name="Intro-tinted-transparent" type="Sprite2D" parent="i4"]
+position = Vector2(960, 568)
+scale = Vector2(1.307, 1.307)
+texture = ExtResource("19_qjc2u")
 
 [node name="menu" type="Node2D" parent="."]
 
@@ -513,3 +561,7 @@ theme_override_font_sizes/font_size = 60
 text = "Press \"space\" to continue..."
 horizontal_alignment = 1
 autowrap_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_d6onh")
+autoplay = true

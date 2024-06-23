@@ -34,11 +34,14 @@ func start_step():
 		tween.tween_property($i1, "modulate", Color(1,1,1,1), t/2.0)
 		tween.tween_callback(start_step)
 	elif step==1:
+		$i1.hide()
 		tween = create_tween()
 		tween.tween_property($i2, "modulate", Color(1,1,1,1), t)
 		tween.tween_callback(start_step)
 	elif step==2:
+		$i2.hide()
 		$i3/Label.text = ""
+		$i3/img1.show()
 		tween = create_tween()
 		tween.tween_property($i3, "modulate", Color(1,1,1,1), t/2.0)
 		tween.tween_callback(start_step)
@@ -63,6 +66,7 @@ func start_step():
 		$i3/Label.visible_ratio = 0
 		tween.tween_property($i3/Label, "visible_ratio", 1.0, t*2.0)
 	elif step==6:
+		$i3.hide()
 		$i4.show()
 		tween = create_tween()
 		tween.tween_property($i4, "modulate", Color(1,1,1,1), t)

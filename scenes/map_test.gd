@@ -136,9 +136,9 @@ func terrain_possessed(coords, kind):
 func movement(from, to, t):
 	level.move_to_(to, "blue", t)
 	level.map_reference[from].modulate = Color(1.0,1.0,1.0,1.0)
-	if map.get_tile_kind_at(to)==1:
+	if map.get_tile_kind_at(to) in [1, 5]:
 		level.map_reference[to].modulate = Color(0.5,0.5,1.0,1.0)
-		# it's a tree
+		# it's a tree or a trap
 		
 	
 	

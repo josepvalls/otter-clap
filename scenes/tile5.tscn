@@ -7,14 +7,14 @@
 _data = [Vector2(0, 0), 0.0, 6.91573, 0, 0, Vector2(0.324324, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_hvnmj"]
+[sub_resource type="CurveTexture" id="CurveTexture_aopbw"]
 curve = SubResource("Curve_qsudy")
 
 [sub_resource type="Curve" id="Curve_ei08f"]
 _data = [Vector2(0.012285, 0.128866), 0.0, 0.0, 0, 0, Vector2(0.162162, 0.427367), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_uiga2"]
+[sub_resource type="CurveTexture" id="CurveTexture_x7ioq"]
 curve = SubResource("Curve_ei08f")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k1v5g"]
@@ -28,15 +28,15 @@ initial_velocity_max = 20.0
 gravity = Vector3(0, 0, 0)
 scale_min = 1.5
 scale_max = 2.0
-scale_curve = SubResource("CurveTexture_uiga2")
-alpha_curve = SubResource("CurveTexture_hvnmj")
+scale_curve = SubResource("CurveTexture_x7ioq")
+alpha_curve = SubResource("CurveTexture_aopbw")
 
-[sub_resource type="Gradient" id="Gradient_b5ope"]
+[sub_resource type="Gradient" id="Gradient_16o2b"]
 offsets = PackedFloat32Array(0.725061, 1)
 colors = PackedColorArray(0.843137, 0, 0.929412, 1, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ckk7k"]
-gradient = SubResource("Gradient_b5ope")
+gradient = SubResource("Gradient_16o2b")
 width = 32
 height = 32
 fill = 1
@@ -47,6 +47,7 @@ fill_to = Vector2(1, 0.5)
 script = ExtResource("1_lyw0h")
 
 [node name="Base" type="Sprite2D" parent="."]
+modulate = Color(0.681694, 0.576586, 0.741669, 1)
 texture = ExtResource("2_b0ulg")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]

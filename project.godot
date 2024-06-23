@@ -10,18 +10,20 @@ config_version=5
 
 [application]
 
-config/name="Otter-clap"
+config/name="Leshachikha"
 run/main_scene="res://scenes/intro.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="res://sprites/intro/Wildling-Wallpaper 1080.png"
-config/icon="res://icon.svg"
+config/icon="res://icon.png"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="viewport"
+window/name="Otter-clap"
+window/icon="res://icon.svg"
 
 [input]
 

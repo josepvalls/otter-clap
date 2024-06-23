@@ -13,7 +13,7 @@ Play online: https://josepvalls.itch.io/leshachikha
 ### Hand drawn art
 * Daniil Rozhkov "Leenad" https://daniil-rozhkov.itch.io/
 
-### Score and SFX
+### Original score and SFX
 * Bryn Kirsch https://brynkirsch.com/
 
 ### Additional assets:

@@ -1,6 +1,8 @@
-# Leshachikha
+# Leshachikha: Protector of the forest
 A game for Godot Wild jam 70
 by team otter-clap
+
+Play online: https://josepvalls.itch.io/leshachikha
 
 ## Credits
 ### Programming

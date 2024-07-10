@@ -43,7 +43,7 @@ var antagonist_speed = 0.3
 @onready var snd2: AudioStreamPlayer = $AudioStreamPlayer as AudioStreamPlayer
 @onready var protagonist_logic: ProtagonistLogic = $map_test/protagonist as ProtagonistLogic
 @onready var protagonist_body = $view/SubViewport/isometric_test2/ysorter/blue as ProtagonistBody
-
+var stationary_time = 0.0
 
 func _ready():
 	get_map()
@@ -62,6 +62,7 @@ func _ready():
 	#add_antagonist()
 	#add_antagonist()
 	move_antagonists()
+	protagonist_body.hide_footsteps()
 
 func add_antagonist():
 	var antagonist_body = preload("res://scenes/red.tscn").instantiate()
@@ -179,6 +180,12 @@ func get_tiles_to_avoid():
 			tiles_to_avoid[coords] = true
 	return tiles_to_avoid
 
+func show_paths():
+	var data = []
+	for antagonist in antagonists:
+		data.append_array(antagonist.path)
+	level.draw_footprints(data)
+
 func move_antagonist(antagonist: MyAntagonist):
 	move_antagonist_conditions(antagonist)
 	antagonist.moved = false
@@ -190,6 +197,7 @@ func move_antagonist(antagonist: MyAntagonist):
 			antagonist.target = exits[randi()%exits.size()]
 		var path_data = map.find_path(antagonist.coords, antagonist.target, memory)
 		antagonist.path = path_data[1]
+		show_paths()
 		print("antagonist target", antagonist.id, antagonist.target, path_data)
 		if path_data[0]==false:
 			antagonist_path_failures +=1
@@ -240,6 +248,7 @@ func pathfinding_rebuild():
 	for antagonist in antagonists:
 		var path_data = map.find_path(antagonist.coords, antagonist.target, memory)
 		antagonist.path = path_data[1]
+	show_paths()
 
 func terrain_possessed(coords, kind):
 	if kind == 0:
@@ -254,11 +263,16 @@ func movement(from, to, t):
 	level.move_to_(to, "blue", t)
 	level.map_reference[from].modulate = Color(1.0,1.0,1.0,1.0)
 	if map.get_tile_kind_at(to) in [1, 5]:
-		
 		level.map_reference[to].modulate = Color(0.5,0.6,0.8,1.0)
 		# it's a tree or a trap
+	stationary_time = 0.0
+	protagonist_body.hide_footsteps()
 		
-	
+		
+func _process(delta):
+	stationary_time += delta
+	if stationary_time > 1:
+		protagonist_body.grow_footsteps(delta*10)
 
 func _input(event):
 	if event is InputEventMouseButton:

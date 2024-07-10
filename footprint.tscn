@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddqhilpj3xr1k"]
+
+[ext_resource type="Texture2D" uid="uid://c6opfoni2fybw" path="res://sprites/red7.png" id="1_tr08r"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ytbde"]
+light_mode = 2
+
+[node name="footprint" type="Sprite2D"]
+light_mask = 16
+material = SubResource("CanvasItemMaterial_ytbde")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_tr08r")

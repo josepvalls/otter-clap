@@ -6,6 +6,29 @@ var tween: Tween
 var tween2: Tween
 
 @export var tiles: Array[PackedScene]
+@export var footprint: PackedScene
+var footprints = []
+@onready var footprint_container: Node2D = $footprints
+func _ready():
+	add_footprints(32)
+	
+func add_footprints(num):
+	for i in num:
+		var f = footprint.instantiate() as Sprite2D
+		footprint_container.add_child(f)
+		f.rotate(PI * randf() * 2)
+		footprints.append(f)
+
+
+func draw_footprints(data):
+	if len(data) > len(footprints):
+		add_footprints(len(data) - len(footprints))
+	for i in footprints:
+		i.hide()
+	for idx in len(data):
+		footprints[idx].position = to_local_(data[idx])
+		footprints[idx].show()
+
 
 func to_local_(v: Vector2):
 	var offset = Vector2(120,72)

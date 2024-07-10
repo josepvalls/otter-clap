@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://vlgj4roi1fa5"]
+[gd_scene load_steps=29 format=3 uid="uid://vlgj4roi1fa5"]
 
 [ext_resource type="Texture2D" uid="uid://dlkm33fpw0eeo" path="res://sprites/paper.png" id="1_5o4qo"]
 [ext_resource type="Script" path="res://scenes/isometric_test2.gd" id="1_uc2ye"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://id2i6y7mgkp6" path="res://scenes/tile6.tscn" id="8_1jrn3"]
 [ext_resource type="Texture2D" uid="uid://ddjfxlb224vet" path="res://sprites/shadow.png" id="8_6ogne"]
 [ext_resource type="Script" path="res://scenes/Shadow_moving.gd" id="9_2ektl"]
+[ext_resource type="PackedScene" uid="uid://ddqhilpj3xr1k" path="res://footprint.tscn" id="9_ge10e"]
 [ext_resource type="Script" path="res://scenes/hint.gd" id="10_sqw4i"]
 
 [sub_resource type="Curve" id="Curve_4itml"]
@@ -67,6 +68,17 @@ fill = 1
 fill_from = Vector2(0.504274, 0.495726)
 fill_to = Vector2(1, 0.5)
 
+[sub_resource type="Gradient" id="Gradient_pwsde"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_r1ell"]
+gradient = SubResource("Gradient_pwsde")
+width = 512
+height = 512
+fill = 1
+fill_from = Vector2(0.512821, 0.517094)
+fill_to = Vector2(1, 0.504274)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_twth0"]
 shader = ExtResource("7_35p6v")
 shader_parameter/tr = Vector2(0, 0)
@@ -74,6 +86,7 @@ shader_parameter/tr = Vector2(0, 0)
 [node name="isometric_test2" type="Node2D"]
 script = ExtResource("1_uc2ye")
 tiles = Array[PackedScene]([ExtResource("2_pw7b2"), ExtResource("3_rovut"), ExtResource("4_i31ke"), ExtResource("5_b63vs"), ExtResource("6_wkn7k"), ExtResource("7_t881l"), ExtResource("8_1jrn3")])
+footprint = ExtResource("9_ge10e")
 
 [node name="Paper" type="Sprite2D" parent="."]
 z_index = -2
@@ -111,6 +124,12 @@ position = Vector2(0, -64)
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("5_i1vwp")
 
+[node name="footstep_revealing_light" type="PointLight2D" parent="ysorter/blue"]
+scale = Vector2(0.1, 0.1)
+range_item_cull_mask = 16
+texture = SubResource("GradientTexture2D_r1ell")
+texture_scale = 10.0
+
 [node name="Shadow" type="Sprite2D" parent="."]
 texture_repeat = 3
 material = SubResource("ShaderMaterial_twth0")
@@ -124,3 +143,5 @@ script = ExtResource("9_2ektl")
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
 color = Color(0.682353, 0.682353, 0.682353, 1)
+
+[node name="footprints" type="Node2D" parent="."]
